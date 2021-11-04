@@ -1,6 +1,8 @@
 # ESL Games
 
-Created Using [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+Created Using [`Svelte Kit`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+
+Contributing - Feel free to suggest, request, inspire, and makes changes!
 
 ## Creating a project
 
@@ -11,8 +13,6 @@ If you're seeing this, you've probably already done this step. Congrats!
 npm install
 
 ```
-
-> Note: the `@next` is temporary
 
 ## Developing
 
