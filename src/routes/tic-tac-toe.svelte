@@ -30,11 +30,18 @@ import Board from '/src/components/tic-tac-toe/Board.svelte';
 
   .game-info {
     font-size: 3em;
+    padding: 0.4em;
     font-family: cursive;
+    font-weight: bolder;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    background: rgb(34, 110, 116);
+    color: rgb(176, 179, 19);
+    border-radius: 0.1em;
   }
 
   .game-board {
     margin: auto;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   }
 	.game-info {
 		margin: auto;
@@ -57,6 +64,7 @@ import Board from '/src/components/tic-tac-toe/Board.svelte';
     border-radius: 6px;
     display: inline-block;
     transition: all 0.3s ease 0s;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   }
 
   ol li:first-child button{
