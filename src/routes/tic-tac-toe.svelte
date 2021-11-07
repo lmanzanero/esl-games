@@ -17,25 +17,61 @@ import Board from '/src/components/tic-tac-toe/Board.svelte';
 
 <style>
 	.game {
+    display: flex; 
+    background: #00b7ff;
+		flex-direction: column;
+    justify-content: center; 
 		font: 14px "Century Gothic", Futura, sans-serif;
-		margin: 20px;
-		display: flex;
-		flex-direction: row;
+		margin: 0;
+    padding: 0;
+    height: 100vh;
+    widows: 100vw;
 	}
+
+  .game-info {
+    font-size: 3em;
+    font-family: cursive;
+  }
+
+  .game-board {
+    margin: auto;
+  }
 	.game-info {
-		margin-left: 20px;
+		margin: auto;
 	}
 	ol {
-		padding-left: 30px;
+		margin: auto;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
 	}
+
+  ol li button {
+    border: none;
+    background: #404040;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 20px;
+    margin: 0.4em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+  }
+
+  ol li button:hover {
+    border: none;
+    background: #5e5d5d;
+    color: antiquewhite;
+  }
 </style>
 
 <div class='game'>
+  <div class='game-info'>
+		<div>{status}</div>
+	</div>
 	<div class='game-board'>
 	  <Board/>
-	</div>
-	<div class='game-info'>
-		<div>{status}</div>
 	</div>
 	<ol>
 		{#each $store.history as step, move}

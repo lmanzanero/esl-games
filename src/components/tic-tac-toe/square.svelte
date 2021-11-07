@@ -10,17 +10,22 @@ $: value = current.board[index];
 
 <style>
 button {
-  background: #fff;
-  border: 1px solid #999;
+  background: rgb(34, 110, 116);
+  border: 1px solid rgb(176, 179, 19);
+  color: aliceblue;
   float: left;
-  font-size: 24px;
+  font-size: 3em;
   font-weight: bold;
   line-height: 34px;
-  height: 34px;
-  margin: -1px;
+  height: 100px;
+  margin: 0 auto;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 100px;
+}
+
+button:hover {
+  background: rgb(47, 82, 85)
 }
 
 button:focus {
