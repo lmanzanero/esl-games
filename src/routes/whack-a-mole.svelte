@@ -88,7 +88,7 @@ import { onMount } from "svelte";
 	@tailwind utilities;
  .game-container {  
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background: #00b7ff;
 		padding: 0;
 		margin: 0;

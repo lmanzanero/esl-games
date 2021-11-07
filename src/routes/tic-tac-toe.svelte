@@ -25,7 +25,7 @@ import Board from '/src/components/tic-tac-toe/Board.svelte';
 		margin: 0;
     padding: 0;
     height: 100vh;
-    widows: 100vw;
+    width: 100vw;
 	}
 
   .game-info {
