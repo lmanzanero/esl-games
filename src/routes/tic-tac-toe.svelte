@@ -59,6 +59,10 @@ import Board from '/src/components/tic-tac-toe/Board.svelte';
     transition: all 0.3s ease 0s;
   }
 
+  ol li:first-child button{
+    background: darkorange;
+  }
+
   ol li button:hover {
     border: none;
     background: #5e5d5d;
@@ -79,7 +83,7 @@ import Board from '/src/components/tic-tac-toe/Board.svelte';
 			{#if move}
 			<button>Go to move # { move }</button>
 			{:else}
-			<button>Go to game start</button>
+			<button>Start Game</button>
 			{/if}
 		</li>
 		{/each}
