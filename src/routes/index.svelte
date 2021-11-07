@@ -4,10 +4,11 @@
 		<h3 class="my-4 text-2xl text-white">
 			A collection of games, tools, and activities to use for your classroom!
 		</h3>
-		<button
-			class="bg-white font-bold rounded-full mt-6 py-4 px-8 shadow-lg uppercase tracking-wider hover:border-red hover:text-white hover:bg-indigo-400"
-			>Get Started</button
-		>
+		<a href="/whack-a-mole">
+			<button
+				class="bg-white font-bold rounded-full mt-6 py-4 px-8 shadow-lg uppercase tracking-wider hover:border-red hover:text-white hover:bg-indigo-400"
+				>Get Started</button
+		></a>
 	</div>
 </section>
 
@@ -76,13 +77,13 @@
 				<h5 class="uppercase mb-6 font-bold">Popular Games</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500">I'll return</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">I'll return</a>
 					</li>
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500">I promise</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">I promise</a>
 					</li>
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500"
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
 							>Reckless is he</a
 						>
 					</li>
@@ -92,12 +93,12 @@
 				<h5 class="uppercase mb-6 font-bold">Legal</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500"
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
 							>Emperor's Terms</a
 						>
 					</li>
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500">Pulverized?</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Pulverized?</a>
 					</li>
 				</ul>
 			</div>
@@ -105,13 +106,13 @@
 				<h5 class="uppercase mb-6 font-bold">Social</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500">Corellia</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Corellia</a>
 					</li>
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500">Bilbringi</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Bilbringi</a>
 					</li>
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500">Fondor</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Fondor</a>
 					</li>
 				</ul>
 			</div>
@@ -119,17 +120,17 @@
 				<h5 class="uppercase mb-6 font-bold">Contribute</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500"
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
 							>Journey to the Emperor</a
 						>
 					</li>
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500"
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
 							>Lord Vader ship approaching?</a
 						>
 					</li>
 					<li class="mt-2">
-						<a href="#" class="hover:underline text-gray-600 hover:text-orange-500">X-wing class</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">X-wing class</a>
 					</li>
 				</ul>
 			</div>
