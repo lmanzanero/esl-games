@@ -62,7 +62,7 @@ import { onMount } from "svelte";
   <button class="bg-violet-600 text-violet-700 text-base font-semibold px-6 py-2 rounded-lg" >Start Game</button>
 
   <div class="game">
-      <div class="hole hole1">
+      <div class="hole up hole1">
         <div class="mole" on:click={bonk}></div>
       </div>
       <div class="hole hole2">

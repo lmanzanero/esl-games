@@ -77,7 +77,7 @@
 				<h5 class="uppercase mb-6 font-bold">Popular Games</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">I'll return</a>
+						<a href="/tic-tac-toe" class="hover:underline text-gray-600 hover:text-orange-500">I'll return</a>
 					</li>
 					<li class="mt-2">
 						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">I promise</a>
