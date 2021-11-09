@@ -1,6 +1,6 @@
 <script> 
-import { calculateWinner, store } from '../stores/tic-tac-toe';
-import Board from '/src/components/tic-tac-toe/Board.svelte'; 
+import Board from 'src/components/tic-tac-toe/board.svelte';
+import { calculateWinner, store } from '../stores/tic-tac-toe'; 
 
 	let status;
 	let winner;
