@@ -1,5 +1,5 @@
 <script> 
-import Board from 'src/components/tic-tac-toe/board.svelte';
+import Board from '../components/tic-tac-toe/board.svelte';
 import { calculateWinner, store } from '../stores/tic-tac-toe'; 
 
 	let status;
