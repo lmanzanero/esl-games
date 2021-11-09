@@ -59,8 +59,6 @@ import { onMount } from "svelte";
 </script>
 <div class="game-container">
   <h1>Whack-a-mole! <span class="score">{score}</span></h1>
-  <button class="bg-violet-600 text-violet-700 text-base font-semibold px-6 py-2 rounded-lg" >Start Game</button>
-
   <div class="game">
       <div class="hole up hole1">
         <div class="mole" on:click={bonk}></div>
@@ -81,6 +79,7 @@ import { onMount } from "svelte";
         <div class="mole" on:click={bonk}></div>
       </div> 
   </div> 
+  <button class="bg-indigo-600 flex justify-center text-white text-base font-semibold m-auto px-6 py-2 rounded-lg" >Start Game</button>
 </div>
 <style>
   @tailwind base;
@@ -96,7 +95,7 @@ import { onMount } from "svelte";
 
 	h1 {
 		text-align: center;
-		font-size: 8rem;
+		font-size: 4rem;
 		line-height: 1;
 		padding: 0.2em;
     font-family: 'Amatic SC', cursive;
@@ -113,7 +112,7 @@ import { onMount } from "svelte";
 		height: 400px;
 		display: flex;
 		flex-wrap: wrap;
-		margin: 0 auto;
+		margin: 4em auto;
 	}
 
 	.hole {
@@ -124,7 +123,7 @@ import { onMount } from "svelte";
 
 	.hole:after {
 		display: block;
-		background: url(dirt.svg) bottom center no-repeat;
+		background: url('dirt.svg') bottom center no-repeat;
 		background-size: contain;
 		content: '';
 		width: 100%;
