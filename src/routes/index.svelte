@@ -63,9 +63,11 @@
 		</div>
 	</div> 
   <div class="container mx-auto px-6 text-center py-10">
-    <button class="bg-indigo-600 text-gray-300 font-bold rounded-full mt-6 py-4 px-8 shadow-lg uppercase tracking-wider hover:border-red hover:text-white hover:bg-indigo-500">
-      View More
-    </button>
+    <a href="/score-keeper">
+			<button class="bg-indigo-600 text-gray-300 font-bold rounded-full mt-6 py-4 px-8 shadow-lg uppercase tracking-wider hover:border-red hover:text-white hover:bg-indigo-500">
+				View More
+			</button>
+		</a>
   </div>
 </section>
 
