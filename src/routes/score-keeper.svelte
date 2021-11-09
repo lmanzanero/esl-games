@@ -3,7 +3,7 @@ import UserCard from "/src/components/score-keeper/UserCard.svelte";
 
  
 </script> 
-<section class="px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
+<section class="bg-purple-400 h-screen px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
   <header class="flex items-center justify-center">
     <h1 class="text-lg leading-6 font-medium text-black">Score Keeper</h1>
   </header>
@@ -15,7 +15,7 @@ import UserCard from "/src/components/score-keeper/UserCard.svelte";
       <input class="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10" type="text" aria-label="Filter user" placeholder="Filter user" />
      </div>
     <div class="flex">
-      <button class="bg-purple-600 hover:bg-purple-700 hover:text-gray-300 group flex items-center rounded-md text-white text-sm font-medium px-4 py-2 mx-2">
+      <button class="bg-indigo-600 hover:bg-indigo-700 hover:text-gray-300 group flex items-center rounded-md text-white text-sm font-medium px-4 py-2 mx-2">
         <svg class="group-hover:text-light-blue-600 text-light-blue-500 mr-2" width="12" height="20" fill="currentColor">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
         </svg>
