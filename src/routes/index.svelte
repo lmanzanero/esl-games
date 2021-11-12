@@ -1,3 +1,8 @@
+<svelte:head>
+	<!-- elements go here -->
+	<title>ESL Real-Time Games - Online classroom games, tools, and activities!</title>
+	<meta name="description" content="A collection of real time online games, tools, and activities to use in your classroom or to practice to learn English!">
+</svelte:head>
 <section style="background-color: #667eea">
 	<div class="container mx-auto px-6 text-center py-20">
 		<h2 class="mb-6 text-4xl font-bold text-center text-white">ESL Real-Time Games</h2>

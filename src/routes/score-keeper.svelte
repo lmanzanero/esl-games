@@ -1,3 +1,8 @@
+<svelte:head>
+	<!-- elements go here -->
+	<title>Score keeper</title>
+	<meta name="description" content="An online tool for scorekeeping, making your online classrooms more engaging, fair, and fun!">
+</svelte:head>
 <script>
 import UserCard from "/src/components/score-keeper/UserCard.svelte";
 

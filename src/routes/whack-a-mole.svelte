@@ -1,4 +1,9 @@
 
+<svelte:head>
+	<!-- elements go here -->
+	<title>ESL Whack a Mole</title>
+	<meta name="description" content="A fun interactive, real time Whack a mole game. Use your voice to walk moles and words from your screen!">
+</svelte:head>
 <script>
 import { onMount } from "svelte";
   let lastHole;

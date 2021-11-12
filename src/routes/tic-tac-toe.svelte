@@ -1,3 +1,8 @@
+<svelte:head>
+	<!-- elements go here -->
+	<title>ESL Tic Tac Toe</title>
+	<meta name="description" content="A fun interactive, real time tic-tac-toe game with voice recongition to for ESL students.">
+</svelte:head>
 <script> 
 import Board from '../components/tic-tac-toe/board.svelte';
 import { calculateWinner, store } from '../stores/tic-tac-toe'; 
