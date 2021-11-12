@@ -123,7 +123,7 @@ import { onMount } from "svelte";
 
 	.hole:after {
 		display: block;
-		background: url('dirt.svg') bottom center no-repeat;
+		background: url('/dirt.svg') bottom center no-repeat;
 		background-size: contain;
 		content: '';
 		width: 100%;
@@ -134,7 +134,7 @@ import { onMount } from "svelte";
 	}
 
 	.mole {
-		background: url('mole.svg') bottom center no-repeat;
+		background: url('/mole.svg') bottom center no-repeat;
 		background-size: 60%;
 		position: absolute;
 		top: 100%;
