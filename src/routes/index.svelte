@@ -68,7 +68,7 @@
 		<div class="w-full md:w-1/2">
 			<img
 				class="rounded-lg h-96 m-auto"
-				src="/static/whack-a-mole.png"
+				src="whack-a-mole.png"
 				alt="Whack a Mole - ESL Real Time Game"
 			/>
 		</div>
