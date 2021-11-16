@@ -34,14 +34,14 @@
 			<a href="/score-keeper" class="text-indigo-600 hover:text-indigo-700">Demo &rarr;</a>
 		</div>
 		<div class="w-full md:w-1/2">
-			<img class="rounded-lg" src="/static/score-keeper.png" alt="Score Keeper - ESL Real Time Game" />
+			<img class="rounded-lg h-96 m-auto" src="score-keeper.png" alt="Score Keeper - ESL Real Time Game" />
 		</div>
 	</div>
 	<div class="flex items-center flex-wrap mb-20">
 		<div class="w-full md:w-1/2">
 			<img
-				class="rounded-lg"
-				src="/static/tic-tac-toe.png"
+				class="rounded-lg h-96 m-auto"
+				src="tic-tac-toe.png"
 				alt="Tic Tac Toe - ESL Real Time Game"
 			/>
 		</div>
@@ -67,7 +67,7 @@
 		</div>
 		<div class="w-full md:w-1/2">
 			<img
-				class="rounded-lg"
+				class="rounded-lg h-96 m-auto"
 				src="/static/whack-a-mole.png"
 				alt="Whack a Mole - ESL Real Time Game"
 			/>
@@ -76,7 +76,7 @@
 	<div class="flex items-center flex-wrap mb-20">
 		<div class="w-full md:w-1/2">
 			<img
-				class="rounded-lg"
+				class="rounded-lg h-96 m-auto"
 				src="https://wheel-decide.com/assets/img/giphy.gif"
 				alt="Wheel of names"
 			/>
