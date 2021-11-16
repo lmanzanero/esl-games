@@ -27,30 +27,30 @@
 		<div class="w-full md:w-1/2 pr-10">
 			<h4 class="text-3xl text-gray-800 font-bold mb-3">Score Keeper</h4>
 			<p class="text-gray-600 mb-8">
-				Their primary target will be the power generators. Prepare to open the shield. Sir, Rebel
-				ships are coming into our sector. Good. Our first catch of the day. Stand by, ion
-				control....Fire! The first transport is away.
+				An online tool for scorekeeping, making your online classrooms more engaging, fair, and fun!
+				Enter student or participants names, adjust their scores accordingly, rank each player, and 
+				keep track of everyone's score!
 			</p>
 			<a href="/score-keeper" class="text-indigo-600 hover:text-indigo-700">Demo &rarr;</a>
 		</div>
 		<div class="w-full md:w-1/2">
-			<img class="rounded-lg" src="https://pbs.twimg.com/media/CR45LOXVEAADG5E.jpg" alt="Vortex" />
+			<img class="rounded-lg" src="/static/score-keeper.png" alt="Score Keeper - ESL Real Time Game" />
 		</div>
 	</div>
 	<div class="flex items-center flex-wrap mb-20">
 		<div class="w-full md:w-1/2">
 			<img
 				class="rounded-lg"
-				src="https://www.thesun.co.uk/wp-content/uploads/2019/06/SWJFO-EAPlay-08-1.jpg"
-				alt="use the force"
+				src="/static/tic-tac-toe.png"
+				alt="Tic Tac Toe - ESL Real Time Game"
 			/>
 		</div>
 		<div class="w-full md:w-1/2 pl-10">
 			<h4 class="text-3xl text-gray-800 font-bold mb-3">Tic-Tic-Toe</h4>
 			<p class="text-gray-600 mb-8">
-				We'll never get it out now. So certain are you. Always with you it cannot be done. Hear you
-				nothing that I say? Master, moving stones around is one thing. This is totally different.
-				No! No different!
+				A fun interactive, real time tic-tac-toe game with voice recongition to for ESL students.
+				This game allows students to pactice their vocabulary using word they have been learning in class.
+				Pair students and have them play using their voice!
 			</p>
 			<a href="/tic-tac-toe" class="text-indigo-600 hover:text-indigo-700">Demo &rarr;</a>
 		</div>
@@ -59,17 +59,17 @@
 		<div class="w-full md:w-1/2 pr-10">
 			<h4 class="text-3xl text-gray-800 font-bold mb-3">Whack a mole</h4>
 			<p class="text-gray-600 mb-8">
-				There is no try. I can't. It's too big. Size matters not. Look at me. Judge me by my size,
-				do you? Hm? Mmmm. And well you should not. For my ally in the Force. And a powerful ally it
-				is.
+				A fun interactive, real time Whack a mole game. Use your voice to walk moles and 
+				words from your screen! Student can say each and whack the words from their screen. 
+				Let's see which student can whack the most moles in a round!
 			</p>
 			<a href="/whack-a-mole" class="text-indigo-600 hover:text-indigo-700">Demo &rarr;</a>
 		</div>
 		<div class="w-full md:w-1/2">
 			<img
 				class="rounded-lg"
-				src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Ferikkain%2Ffiles%2F2018%2F01%2FRey-Luke.jpg"
-				alt="Syncing"
+				src="/static/whack-a-mole.png"
+				alt="Whack a Mole - ESL Real Time Game"
 			/>
 		</div>
 	</div> 
@@ -77,8 +77,8 @@
 		<div class="w-full md:w-1/2">
 			<img
 				class="rounded-lg"
-				src="https://www.thesun.co.uk/wp-content/uploads/2019/06/SWJFO-EAPlay-08-1.jpg"
-				alt="use the force"
+				src="https://wheel-decide.com/assets/img/giphy.gif"
+				alt="Wheel of names"
 			/>
 		</div>
 		<div class="w-full md:w-1/2 pl-10">
@@ -108,28 +108,28 @@
 				<h5 class="uppercase mb-6 font-bold">Popular Games</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="/tic-tac-toe" class="hover:underline text-gray-600 hover:text-orange-500">I'll return</a>
+						<a href="/tic-tac-toe" class="hover:underline text-gray-600 hover:text-orange-500">Tic Tac Toe</a>
 					</li>
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">I promise</a>
+						<a href="/whack-a-mole" class="hover:underline text-gray-600 hover:text-orange-500">Whack a mole</a>
 					</li>
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
-							>Reckless is he</a
+						<a href="/live-quiz" class="hover:underline text-gray-600 hover:text-orange-500"
+							>Live Quiz</a
 						>
 					</li>
 				</ul>
 			</div>
 			<div class="w-full md:w-1/4 text-center md:text-left ">
-				<h5 class="uppercase mb-6 font-bold">Legal</h5>
+				<h5 class="uppercase mb-6 font-bold">Popular Tools</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
-							>Emperor's Terms</a
+						<a href="/wheel-of-names" class="hover:underline text-gray-600 hover:text-orange-500"
+							>Wheel of names</a
 						>
 					</li>
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Pulverized?</a>
+						<a href="/score-keeper" class="hover:underline text-gray-600 hover:text-orange-500">Score Keeper</a>
 					</li>
 				</ul>
 			</div>
@@ -137,13 +137,13 @@
 				<h5 class="uppercase mb-6 font-bold">Social</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Corellia</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Facebook</a>
 					</li>
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Bilbringi</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Instagram</a>
 					</li>
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Fondor</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Twitter</a>
 					</li>
 				</ul>
 			</div>
@@ -152,21 +152,24 @@
 				<ul class="mb-4">
 					<li class="mt-2">
 						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
-							>Journey to the Emperor</a
+							>Github</a
 						>
 					</li>
 					<li class="mt-2">
 						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
-							>Lord Vader ship approaching?</a
+							>Suggest</a
 						>
 					</li>
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">X-wing class</a>
+						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500">Donate</a>
 					</li>
 				</ul>
 			</div>
 		</div>
-	</div>
+		<div class="text-center text-sm text-indigo-400 font-semibold py-3">
+			Copyright © 2021 ESL Real-Time Games
+		</div>
+	</div>	 
 </footer>
 
 <style>

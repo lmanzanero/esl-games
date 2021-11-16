@@ -8,7 +8,7 @@ import UserCard from "/src/components/score-keeper/UserCard.svelte";
 
  
 </script> 
-<section class="bg-purple-400 h-screen px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
+<section class="h-screen px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
   <header class="flex items-center justify-center">
     <h1 class="text-lg leading-6 font-medium text-black">Score Keeper</h1>
   </header>
