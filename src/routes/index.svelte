@@ -18,7 +18,7 @@
 </svelte:head>
 <section style="background-color: #667eea">
 	<div class="container mx-auto px-6 text-center py-20">
-		<h2 class="mb-6 text-4xl font-bold text-center text-white">ESL Real-Time Games</h2>
+		<h1 class="mb-6 text-4xl font-bold text-center text-white">ESL Real-Time Games</h1>
 		<h3 class="my-4 text-2xl text-white">
 			A collection of games, tools, and activities to use for your classroom!
 		</h3>
