@@ -16,18 +16,7 @@
     event.dataTransfer.dropEffect = 'move'; 
     const start = parseInt(event.dataTransfer.getData("text/plain"));
     const newTracklist = list
-    const listToSentence = Object.values(newTracklist);
-    const sentence = [];
-    listToSentence.forEach(word => {
-      sentence.push(word.name);
-    })
-    // Todo: fixed matching
-    const fixedSentence = sentence.join(' '); 
-    console.log(correctSentences[0].sentence, fixedSentence);
-    if(correctSentences[0].sentence === fixedSentence){
-      console.log("matches");
-      alert("Matches")
-    }
+    const sentence = []; 
     if (start < target) {
       newTracklist.splice(target + 1, 0, newTracklist[start]);
       newTracklist.splice(start, 1);
@@ -37,6 +26,16 @@
     }
     list = newTracklist
     hovering = null
+    const listToSentence = Object.values(list); 
+    listToSentence.forEach(word => {
+      sentence.push(word.name);
+    })
+    // Todo: fixed matching
+    const fixedSentence = sentence.join(' ');
+    if(correctSentences[0].sentence === fixedSentence){
+      console.log("matches");
+      alert("Matches")
+    }
   }
 
   const dragstart = (event, i) => {
