@@ -11,6 +11,8 @@
 	let list = [{name: "They", id: 0}, {name: "playing", id: 1},
 							{name: "at the park", id: 2}, {name: "are", id: 3}];
   let hovering = false;
+  let isListening = false;
+  let isCorrect = false;
 
   const drop = (event, target) => {
     event.dataTransfer.dropEffect = 'move'; 
@@ -29,12 +31,15 @@
     const listToSentence = Object.values(list); 
     listToSentence.forEach(word => {
       sentence.push(word.name);
-    })
-    // Todo: fixed matching
+    }) 
     const fixedSentence = sentence.join(' ');
     if(correctSentences[0].sentence === fixedSentence){
       console.log("matches");
-      alert("Matches")
+      isCorrect = true;
+      isListening = true;
+    }  else {
+      isCorrect = false;
+      isListening = false;
     }
   }
 
@@ -51,8 +56,8 @@
   <h1 class="text-3xl md:text-4xl font-medium mb-2">ESL Words Sorter</h1>
    <div class="flex justify-center">
     <button class="bg-blue-500 text-white py-2 px-6 m-2 rounded-full">Start</button>
-    <button class="bg-blue-500 text-white py-2 px-6 m-2 rounded-full"> 
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <button on:click="{() => isListening = true}" class="bg-blue-500 text-white py-2 px-6 m-2 rounded-full {isListening ? 'animate-pulse' : ''}"> 
+      <svg xmlns="http://www.w3.org/2000/svg" class="{isListening ? 'animate-ping h-4 w-4' : 'h-6 w-6'}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
       </svg>
     </button>
@@ -61,7 +66,7 @@
     <img src="https://en.pimg.jp/060/269/387/1/60269387.jpg" alt="mockup" class="d-block rounded shadow-md">
   </div>
 </div>
-<div class="list">
+<div class="list {isCorrect ? 'bg-green-400' : 'bg-red-400'}">
   {#each list as n, index  (n.name)}
     <div
 			 class="list-item"   
@@ -85,11 +90,9 @@
   .list {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    background-color: white; 
+    justify-content: center; 
     border-radius: 4px;
-    width: fit-content;
-    background:powderblue;
+    width: fit-content; 
     margin: auto;
     box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   }
