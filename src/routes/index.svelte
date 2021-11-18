@@ -2,6 +2,19 @@
 	<!-- elements go here -->
 	<title>ESL Real-Time Games - Online classroom games, tools, and activities!</title>
 	<meta name="description" content="A collection of real time online games, tools, and activities to use in your classroom or to practice to learn English!">
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://esl-games.vercel.app/">
+	<meta property="og:title" content="ESL Real-Time Games - Online classroom games, tools, and activities!">
+	<meta property="og:description" content="A collection of real time online games, tools, and activities to use in your classroom or to practice to learn English!">
+	<meta property="og:image" content="https://esl-games.vercel.app/esl-social.jpg">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://esl-games.vercel.app/">
+	<meta property="twitter:title" content="ESL Real-Time Games - Online classroom games, tools, and activities!">
+	<meta property="twitter:description" content="A collection of real time online games, tools, and activities to use in your classroom or to practice to learn English!">
+	<meta property="twitter:image" content="https://esl-games.vercel.app/esl-social.jpg">
 </svelte:head>
 <section style="background-color: #667eea">
 	<div class="container mx-auto px-6 text-center py-20">
