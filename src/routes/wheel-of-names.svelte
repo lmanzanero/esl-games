@@ -8,14 +8,16 @@ import { onMount } from "svelte";
 
 
 	const sectors = [
-  {color:"#f82", label:"Stack"},
-  {color:"#0bf", label:"10"},
-  {color:"#fb0", label:"200"},
-  {color:"#0fb", label:"50"},
-  {color:"#b0f", label:"100"},
-  {color:"#f0b", label:"5"},
-  {color:"#bf0", label:"500"},
-	{color:"#ff5", label:"Luis"},
+  {color:"#f82", label:"User 0"},
+  {color:"#0bf", label:"User 1"},
+  {color:"#fb0", label:"User 2"},
+  {color:"#0fb", label:"User 3"},
+  {color:"#b0f", label:"User 4"},
+  {color:"#f0b", label:"User 5"},
+  {color:"#bf0", label:"User 6"},
+	{color:"#fb5", label:"User 7"},
+	{color:"#bf0", label:"User 8"},
+	{color:"#fb5", label:"User 9"},
 ];
 
 onMount(() => {
@@ -94,17 +96,17 @@ onMount(() => {
 </script>
 <div class="container-fluid h-screen">
 	<h1 class="mb-6 text-4xl font-bold text-center text-gray p-3">ESL Real-Time Games</h1>
-	<div class="flex space-around flex-row m-auto"> 
+	<div class="flex justify-evenly flex-row flex-wrap m-auto"> 
 			<!-- <img
 			class="rounded-lg h-96 m-auto"
 			src="https://wheel-decide.com/assets/img/giphy.gif"
 			alt="Wheel of names"
 		/> -->
-		<div id="wheelOfFortune" class="w-auto m-auto">
+		<div id="wheelOfFortune" class="w-auto">
 			<canvas id="wheel" width="500" height="500"></canvas>
 			<div id="spin">SPIN</div> 
 		</div>
-		<div class="w-1/3 m-auto shadow"> 
+		<div class="w-1/3 shadow"> 
 			<button class="text-white bg-purple-700 hover:bg-purple-600 hover:text-gray-300 py-2 px-6 m-2 rounded-full flex"> 
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
