@@ -9,7 +9,8 @@
 </script>
 
 <script>
+import NotFound from "../components/errors/NotFound.svelte";
+
   export let title;
 </script>
-
-<h1>{title}</h1>
+<NotFound title={title}/>
