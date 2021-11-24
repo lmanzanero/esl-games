@@ -4,14 +4,14 @@
 	<meta name="description" content="A fun interactive, real time tic-tac-toe game with voice recongition to for ESL students.">
     	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://esl-games.vercel.app/">
+	<meta property="og:url" content="https://esl-games.vercel.app/tic-tac-toe">
 	<meta property="og:title" content="ESL Tic Tac Toer">
 	<meta property="og:description" content="A fun interactive, real time tic-tac-toe game with voice recongition to for ESL students.">
 	<meta property="og:image" content="https://esl-games.vercel.app/tic-tac-toe.png">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://esl-games.vercel.app/">
+	<meta property="twitter:url" content="https://esl-games.vercel.app/tic-tac-toe">
 	<meta property="twitter:title" content="ESL Tic Tac Toe">
 	<meta property="twitter:description" content="A fun interactive, real time tic-tac-toe game with voice recongition to for ESL students.">
 	<meta property="twitter:image" content="https://esl-games.vercel.app/tic-tac-toe.png">
