@@ -95,7 +95,7 @@ onMount(() => {
  
 </script>
 <div class="container-fluid h-screen">
-	<h1 class="mb-6 text-4xl font-bold text-center text-gray p-3">ESL Real-Time Games</h1>
+	<h1 class="mb-6 text-4xl font-bold text-center text-gray p-3">Wheel of Names</h1>
 	<div class="flex justify-evenly flex-row flex-wrap m-auto"> 
 			<!-- <img
 			class="rounded-lg h-96 m-auto"
