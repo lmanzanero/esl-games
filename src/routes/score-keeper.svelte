@@ -17,8 +17,14 @@
 	<meta property="twitter:image" content="https://esl-games.vercel.app/score-keeper.png">
 </svelte:head>
 <script>
+import { scoreKeeperStore } from "../stores/score-keeper";
+
 import UserCard from "/src/components/score-keeper/UserCard.svelte";
 
+let Users; 
+
+scoreKeeperStore.subscribe(data => Users = data.users);
+console.log("Users: ", Users);
  
 </script> 
 <section class="h-screen px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
@@ -48,9 +54,9 @@ import UserCard from "/src/components/score-keeper/UserCard.svelte";
     </div>
   </form> 
      <div class="grid grid-cols-3 gap-4">
-       <UserCard/>
-       <UserCard/>
-       <UserCard/>
+      {#each Users as user}
+       <UserCard userData={user}/>  
+      {/each}
      </div>
 </section>
 <style>

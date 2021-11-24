@@ -1,9 +1,12 @@
+<script>
+  export let userData; 
+</script>
 <div class="bg-white shadow-md border rounded px-8 pt-6 pb-8 mb-4 my-32">
   <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
-    Username
+    {userData.username}
   </label>
    <div>
-    <input class="w-28 shadow appearance-none border rounded py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="score" type="text" placeholder="100">
+    <input class="w-28 shadow appearance-none border rounded py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="score" type="text" placeholder={userData.score}>
     <button class="flex-shrink-0 bg-blue-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-2 text-white py-2 px-3 rounded" type="button">
       +5
     </button>
