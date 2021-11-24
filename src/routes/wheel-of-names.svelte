@@ -4,6 +4,8 @@
 	<meta name="description" content="A fun, free and easy to use spinner to make your class more engaging. Add names or words, and randomly choose one!">
 </svelte:head>
 <script>
+import { wheelStore } from "../stores/wheelOfNames";
+
 import { onMount } from "svelte";
 
 
@@ -20,8 +22,9 @@ import { onMount } from "svelte";
 	{color:"#fb5", label:"User 9"},
 ];
 
-onMount(() => {
+wheelStore.subscribe(users => console.log(users));
 
+onMount(() => {
 	const rand = (m, M) => Math.random() * (M - m) + m;
 	const tot = sectors.length;
 	const EL_spin = document.querySelector("#spin");
@@ -165,8 +168,8 @@ onMount(() => {
   background: #fff;
   color: #fff;
   box-shadow: 0 0 0 8px currentColor, 0 0px 15px 5px rgba(0, 0, 0, 0.6);
-  border-radius: 50%;
-  transition: 0.8s;
+  border-radius: 50%; 
+	transition: 0.8s background;
 }
 
 #spin::after {
