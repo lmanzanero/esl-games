@@ -27,12 +27,12 @@
   <changefreq>never</changefreq>
   <priority>0.80</priority>
 </url>
-<url></url>
+<url> 
   <loc>https://esl-games.vercel.app/wheel-of-names</loc> 
   <changefreq>never</changefreq>
   <priority>0.80</priority>
 </url>
-<url></url>
+<url> 
   <loc>https://esl-games.vercel.app/esl-words-sorter</loc> 
   <changefreq>never</changefreq>
   <priority>0.80</priority>
