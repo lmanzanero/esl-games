@@ -7,7 +7,9 @@
 import { wheelStore } from "../stores/wheelOfNames";
 
 import { onMount } from "svelte";
+import { each } from "svelte/internal";
 
+ export let users;
 
 	const sectors = [
   {color:"#f82", label:"User 0"},
@@ -22,8 +24,9 @@ import { onMount } from "svelte";
 	{color:"#fb5", label:"User 9"},
 ];
 
-wheelStore.subscribe(users => console.log(users));
+wheelStore.subscribe(data => users = data.users);
 
+console.log(users);
 onMount(() => {
 	const rand = (m, M) => Math.random() * (M - m) + m;
 	const tot = sectors.length;
@@ -118,7 +121,11 @@ onMount(() => {
 			</button>
 			<div class="md:flex-1 mt-2 mb:mt-0 md:px-3">
 				<legend class="font-bold tracking-wide text-sm">Description</legend> 
-				<textarea class="w-full shadow-inner p-4 border-0" placeholder="Enter space for new word" rows="6"></textarea> 
+				<textarea class="w-full shadow-inner p-4 border-0" placeholder="Enter space for new word">
+					<!-- {#each users as user}
+						{user}
+      		{/each} -->
+				</textarea> 
 			</div>
 			<div class="flex flex-col mt-2 mb:mt-0 md:px-3">
 				<button class="button rounded flex justify-center shadow w-full text-white bg-purple-700 hover:bg-purple-600 hover:text-gray-300 p-2 m-1">

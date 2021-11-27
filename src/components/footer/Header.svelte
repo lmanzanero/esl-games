@@ -44,12 +44,12 @@
            md:pt-0"
        >
          <li>
-           <a class="md:p-4 py-2 block hover:text-purple-400" href="/"
+           <a class="md:p-4 py-2 block hover:text-purple-400" href="/games"
              >Games</a
            >
          </li>
          <li>
-           <a class="md:p-4 py-2 block hover:text-purple-400" href="/"
+           <a class="md:p-4 py-2 block hover:text-purple-400" href="/about"
              >About</a
            >
          </li>
@@ -59,7 +59,7 @@
            >
          </li>
          <li>
-           <a class="md:p-4 py-2 block hover:text-purple-400" href="/"
+           <a class="md:p-4 py-2 block hover:text-purple-400" href="/blog"
              >Blog</a
            >
          </li>
