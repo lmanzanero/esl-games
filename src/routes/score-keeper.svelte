@@ -18,8 +18,7 @@
 </svelte:head>
 <script>
 import { scoreKeeperStore } from "../stores/score-keeper";
-
-import UserCard from "/src/components/score-keeper/UserCard.svelte";
+import UserCard from "../components/score-keeper/UserCard.svelte";
 
 let Users; 
 
