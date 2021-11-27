@@ -1,4 +1,5 @@
 <script>
+import Header from "../components/footer/Header.svelte";
 import Footer from "../components/footer/Footer.svelte";
 
 </script>
@@ -20,6 +21,7 @@ import Footer from "../components/footer/Footer.svelte";
 	<meta property="twitter:description" content="A collection of real time online games, tools, and activities to use in your classroom or to practice to learn English!">
 	<meta property="twitter:image" content="https://esl-games.vercel.app/esl-social.jpg">
 </svelte:head>
+<Header/>
 <section style="background-color: #667eea">
 	<div class="container mx-auto px-6 text-center py-20">
 		<h1 class="mb-6 text-4xl font-bold text-center text-white">ESL Real-Time Games</h1>
