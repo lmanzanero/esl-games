@@ -13,6 +13,16 @@
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://esl-games.vercel.app/about</loc> 
+  <changefreq>never</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://esl-games.vercel.app/games</loc> 
+  <changefreq>never</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
   <loc>https://esl-games.vercel.app/score-keeper</loc> 
   <changefreq>never</changefreq>
   <priority>0.80</priority>
