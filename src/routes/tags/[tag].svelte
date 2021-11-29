@@ -1,5 +1,5 @@
 <script context="module">
-  const allPosts = import.meta.glob("../../blog/*.{md,svx}");
+  const allPosts = import.meta.glob("./*.{md,svx}");
   let body = [];
   for (let path in allPosts) {
     body.push(
