@@ -1,5 +1,5 @@
 <script context="module">
-  const allPosts = import.meta.glob("./*.{md,svx}");
+  const allPosts = import.meta.glob("../blog/*.{md,svx}");
   let body = [];
   for (let path in allPosts) {
     body.push(
@@ -25,10 +25,10 @@
 
 <script>
   export let filteredPosts;
-  export let page;
+  export let tag;
 </script>
 
-<h1>{page}</h1>
+<h1>{tag}</h1>
 
 {#each filteredPosts as { path, metadata: { title } }}
   <li>
