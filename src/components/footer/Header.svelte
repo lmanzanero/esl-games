@@ -53,23 +53,23 @@
              >About</a
            >
          </li>
-         <li>
+         <!-- <li>
            <a class="md:p-4 py-2 block hover:text-purple-400" href="/"
              >Pricing</a
            >
-         </li>
+         </li> -->
          <li>
            <a class="md:p-4 py-2 block hover:text-purple-400" href="/blog"
              >Blog</a
            >
          </li>
-         <li>
+         <!-- <li>
            <a
              class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
              href="/"
              >Sign Up</a
            >
-         </li>
+         </li> -->
        </ul>
      </div>
  </nav>

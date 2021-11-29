@@ -1,7 +1,7 @@
 ---
 title: Top 10 ESL Online Games 2021
 tags: 
-  - esl games 
+  - eslgames 
 date: 2021-06-21
 ---
 
