@@ -10,7 +10,7 @@
   }
   export const load = async ({ page }) => {
     const posts = await Promise.all(body);
-    const tag = page.params.tag;
+    const tag = page.params.tag; 
     const filteredPosts = posts.filter((post) => {
       return post.metadata.tags.includes(tag);
     });
@@ -25,10 +25,10 @@
 
 <script>
   export let filteredPosts;
-  export let tag;
+  export let page;
 </script>
 
-<h1>{tag}</h1>
+<h1>{page}</h1>
 
 {#each filteredPosts as { path, metadata: { title } }}
   <li>
