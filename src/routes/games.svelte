@@ -1,3 +1,8 @@
+<script>
+import Footer from "../components/footer/Footer.svelte";
+import Header from "../components/header/Header.svelte";
+
+</script>
 <svelte:head>
 	<!-- elements go here -->
 	<title>Games & Tools</title>
@@ -16,5 +21,7 @@
 	<meta property="twitter:description" content="A collection of ESL online real time games and tools to use in your class to practice learning English online.">
 	<meta property="twitter:image" content="https://esl-games.vercel.app/esl-social.jpg">
 </svelte:head>
+<Header/>
 <h1>Games</h1>
 <p>A collection of ESL online real time games and tools to use in your class to practice learning English online.</p>
+<Footer/>
