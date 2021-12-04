@@ -7,12 +7,18 @@ import { scoreKeeperStore } from "../../stores/score-keeper";
   function addUser() { 
     //ensure new user is not empty
     if(newUser.length < 1) return alert("Username must not be empty");
+    //check user already exists 
+    if(userExists(newUser)) return alert("User already exists!"); 
     Users.push({
       username: newUser,
       score: 0
     })
     scoreKeeperStore.set({users: Users});
     console.log(Users);
+  }
+
+  function userExists(username) { 
+   return Users.some(user => user.username == username); 
   }
 </script>
 <div class="bg-white fixed w-full overflow-hidden h-32 m-auto shadow">
