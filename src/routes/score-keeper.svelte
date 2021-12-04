@@ -19,11 +19,7 @@
 <script>
 import { scoreKeeperStore } from "../stores/score-keeper";
 import UserCard from "../components/score-keeper/UserCard.svelte";
-
-let Users; 
-
-scoreKeeperStore.subscribe(data => Users = data.users);
-console.log("Users: ", Users);
+ 
  
 </script> 
 <section class="h-screen">
@@ -53,7 +49,7 @@ console.log("Users: ", Users);
    </form> 
   </div>
      <div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 pt-32">
-      {#each Users as user}
+      {#each $scoreKeeperStore.users as user}
        <UserCard userData={user}/>  
       {/each}
      </div>

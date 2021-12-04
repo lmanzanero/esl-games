@@ -3,27 +3,27 @@ import { writable } from "svelte/store";
 const defaultScores = {
 	users: [
     {
-      username: "User 1",
+      username: "Luis",
       score: 30
 	  },
     {
-      username: "User 2",
+      username: "Eva",
       score: 10
 	  },
     {
-      username: "User 3",
+      username: "John",
       score: 0
 	  },
     {
-      username: "User 4",
+      username: "Sofia",
       score: 30
 	  },
     {
-      username: "User 5",
+      username: "Hannah",
       score: 10
 	  },
     {
-      username: "User 6",
+      username: "Jerry",
       score: 0
 	  },
 ]
