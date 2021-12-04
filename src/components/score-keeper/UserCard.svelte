@@ -15,8 +15,19 @@ import { scoreKeeperStore } from "../../stores/score-keeper";
      //return new score object with updatedScores
      scoreKeeperStore.update(store => Object.assign({}, store, {users: updatedScores})); 
   }
+
+  function removeUser(){
+    console.log("Deleting User from store");
+  }
 </script>
-<div class="bg-white shadow-md border rounded px-8 pt-6 pb-8 m-2">
+<div class="bg-white relative shadow-md border rounded px-8 pt-5 pb-7 m-2">
+  <button on:click={removeUser} type="button" class="bg-red-200 absolute top-0 right-0 rounded-md p-1 inline-flex items-center justify-center text-gray-500 hover:text-gray-600 hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+    <span class="sr-only">Close menu</span>
+    <!-- Heroicon name: outline/x -->
+    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
   <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
     {userData.username}
   </label>
