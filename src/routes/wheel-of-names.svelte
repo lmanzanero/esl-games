@@ -6,8 +6,7 @@
 <script>
 import { wheelStore } from "../stores/wheelOfNames";
 
-import { onMount } from "svelte";
-import { each } from "svelte/internal";
+import { onMount } from "svelte"; 
 
  export let users;
 
@@ -121,8 +120,8 @@ onMount(() => {
 			</button>
 			<div class="md:flex-1 mt-2 mb:mt-0 md:px-3">
 				<legend class="font-bold tracking-wide text-sm">Description</legend> 
-				<textarea class="w-full shadow-inner p-4 border-0" placeholder="Enter space for new word">
-				 
+				<textarea class="w-full h-64 shadow-inner p-4 border-0  text-left truncate" placeholder="Enter space for new word">
+				 {users.join('\n')}
 				</textarea> 
 			</div>
 			<div class="flex flex-col mt-2 mb:mt-0 md:px-3">

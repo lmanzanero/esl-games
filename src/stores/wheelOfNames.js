@@ -2,12 +2,12 @@ import { writable } from "svelte/store";
 
 const defaultUsers = {
 	users: [
-    "User 1",
-    "User 1",
-    "User 1",
-    "User 1",
-    "User 1",
-    "User 1",
+    "Luis",
+    "Eva",
+    "Sophie",
+    "John",
+    "Steven",
+    "Andy",
   ]
 }
 function createWheelStore() {
