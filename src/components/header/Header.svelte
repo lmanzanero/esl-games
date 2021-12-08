@@ -1,3 +1,10 @@
+<script>
+  let isMenuHidden = false;  
+  function toggleMenu () {
+    console.log("menu: ", isMenuHidden)
+    return isMenuHidden = !isMenuHidden;
+  }
+</script>
 <header>
   <nav
      class="
@@ -25,6 +32,7 @@
          fill="none"
          viewBox="0 0 24 24"
          stroke="currentColor"
+         on:click={toggleMenu}
        >
          <path
            stroke-linecap="round"
@@ -34,7 +42,7 @@
          />
        </svg>
     
-    <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
+    <div class={`${isMenuHidden ? 'hidden' : ''} w-full md:flex md:items-center md:w-auto`} id="menu">
        <ul
          class="
            pt-4
