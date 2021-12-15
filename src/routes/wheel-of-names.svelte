@@ -100,7 +100,7 @@ onMount(() => {
 		if (!angVel) angVel = rand(0.25, 0.35);
 	});
 	
-	document.querySelector('.save').addEventListener("click", () => { 
+	document.querySelector('textarea').addEventListener("keyup", () => { 
 		tot = $wheelStore.users.length;
 		arc = TAU / $wheelStore.users.length;
 		$wheelStore.users.forEach(drawSector);  
@@ -112,12 +112,7 @@ onMount(() => {
 <div class="container-fluid h-screen">
 	<h1 class="mb-6 text-4xl font-bold text-center text-gray p-3">Wheel of Names</h1>
 	<div class="flex justify-evenly flex-row flex-wrap m-auto"> 
-			<!-- <img
-			class="rounded-lg h-96 m-auto"
-			src="https://wheel-decide.com/assets/img/giphy.gif"
-			alt="Wheel of names"
-		/> -->
-		{JSON.stringify(users)}
+		<!-- {JSON.stringify(users)} -->
 		<div id="wheelOfFortune" class="w-auto">
 			<canvas bind:this={canvas} id="wheel" width="500" height="500"></canvas>
 			<div id="spin">SPIN</div> 
