@@ -21,7 +21,7 @@ function addNames(e) {
 	const allNames = e.target.value.split('\n'); 
 	const structuredNames = allNames.map(name => {
 		const wheelName = {
-			color: "blue",
+			color: `#${Math.floor(Math.random()*16777215).toString(16)}`,
 			label: `${name}`
 		}
 		return wheelName;
@@ -29,17 +29,16 @@ function addNames(e) {
 	wheelStore.update(store => Object.assign({}, store, {users: structuredNames}));   
  } 
 
-onMount(() => {
-	console.log(users); 
+onMount(() => { 
 	const rand = (m, M) => Math.random() * (M - m) + m;
-	const tot = users.length;
+	let tot = $wheelStore.users.length;
 	const EL_spin = document.querySelector("#spin");
 	const ctx = canvas.getContext('2d');
-	const dia = canvas.width;
+	const dia = ctx.canvas.width;
 	const rad = dia / 2;
 	const PI = Math.PI;
 	const TAU = 2 * PI;
-	const arc = TAU / users.length;
+	let arc = TAU / $wheelStore.users.length;
 
 	const friction = 0.991; // 0.995=soft, 0.99=mid, 0.98=hard
 	let angVel = 0; // Angular velocity
@@ -69,7 +68,7 @@ onMount(() => {
 	};
 
 	function rotate() {
-		const sector = users[getIndex()];
+		const sector = $wheelStore.users[getIndex()];
 		canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
 		EL_spin.textContent = !angVel ? "SPIN" : sector.label;
 		EL_spin.style.background = sector.color;
@@ -100,9 +99,11 @@ onMount(() => {
 	document.querySelector('.spinner').addEventListener("click", () => {
 		if (!angVel) angVel = rand(0.25, 0.35);
 	});
-
-	document.querySelector('textarea').addEventListener("keyup", () => { 
-		users.forEach(drawSector); 
+	
+	document.querySelector('.save').addEventListener("click", () => { 
+		tot = $wheelStore.users.length;
+		arc = TAU / $wheelStore.users.length;
+		$wheelStore.users.forEach(drawSector);  
 	})
 });
  
