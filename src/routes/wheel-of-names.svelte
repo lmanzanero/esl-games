@@ -7,14 +7,19 @@
 import { wheelStore } from "../stores/wheelOfNames";
 
 import { onMount } from "svelte"; 
+import Toast from "../components/notifications/toast.svelte";
 
  export let users = [];
  let canvas;
  let isModalOpen = false;
+ export let isShow = false;
 
- function toggleModal() {
-		console.log("toggle");
+ function toggleModal() { 
 		return isModalOpen = !isModalOpen;
+ }
+
+ function showToast() { 
+	 isShow = true;
  }
  
 
@@ -116,6 +121,7 @@ onMount(() => {
  
 </script>
 <div class="container-fluid h-screen">
+	<Toast isShow={isShow}/>
 	<h1 class="mb-6 text-4xl font-bold text-center text-gray p-3">Wheel of Names</h1>
 	<div class="flex justify-evenly flex-row flex-wrap m-auto"> 
 		<!-- {JSON.stringify(users)} -->
@@ -137,7 +143,7 @@ onMount(() => {
 				<textarea bind:value={text} on:keyup={addNames} class="w-full h-64 shadow-inner p-4 border-0  text-left truncate" placeholder="Enter space for new word"></textarea> 
 			</div>
 			<div class="flex flex-col mt-2 mb:mt-0 md:px-3">
-				<button class="button save rounded flex justify-center shadow w-full text-white bg-purple-700 hover:bg-purple-600 hover:text-gray-300 p-2 m-1">
+				<button on:click={showToast} class="button save rounded flex justify-center shadow w-full text-white bg-purple-700 hover:bg-purple-600 hover:text-gray-300 p-2 m-1">
 					<svg xmlns="http://www.w3.org/2000/svg" class="group-hover:text-light-blue-600 text-light-blue-500 mr-2" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
 					</svg>
@@ -153,7 +159,7 @@ onMount(() => {
 		</div>
 	</div>
 	<!-- Modal -->
-	<div class={`fixed z-10 overflow-y-auto top-0 w-full left-0 ${isModalOpen ? "hidden": ""}`} id="modal">
+	<div class={`fixed z-10 overflow-y-auto top-0 w-full left-0 ${!isModalOpen ? "hidden": ""}`} id="modal">
 		<div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 			<div class="fixed inset-0 transition-opacity">
 				<div class="absolute inset-0 bg-gray-900 opacity-75" />
