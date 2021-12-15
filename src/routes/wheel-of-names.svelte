@@ -8,34 +8,38 @@ import { wheelStore } from "../stores/wheelOfNames";
 
 import { onMount } from "svelte"; 
 
- export let users;
-
-	const sectors = [
-  {color:"#f82", label:"User 0"},
-  {color:"#0bf", label:"User 1"},
-  {color:"#fb0", label:"User 2"},
-  {color:"#0fb", label:"User 3"},
-  {color:"#b0f", label:"User 4"},
-  {color:"#f0b", label:"User 5"},
-  {color:"#bf0", label:"User 6"},
-	{color:"#fb5", label:"User 7"},
-	{color:"#bf0", label:"User 8"},
-	{color:"#fb5", label:"User 9"},
-];
+ export let users = [];
+ let canvas;
+ 
 
 wheelStore.subscribe(data => users = data.users);
 
-console.log(users);
+let splitUsers = users.map(user => user.label);
+let text = splitUsers.join('\n'); 
+function addNames(e) { 
+	//update names based on store and textarea 
+	const allNames = e.target.value.split('\n'); 
+	const structuredNames = allNames.map(name => {
+		const wheelName = {
+			color: "blue",
+			label: `${name}`
+		}
+		return wheelName;
+	});
+	wheelStore.update(store => Object.assign({}, store, {users: structuredNames}));   
+ } 
+
 onMount(() => {
+	console.log(users); 
 	const rand = (m, M) => Math.random() * (M - m) + m;
-	const tot = sectors.length;
+	const tot = users.length;
 	const EL_spin = document.querySelector("#spin");
-	const ctx = document.querySelector("#wheel").getContext('2d');
-	const dia = ctx.canvas.width;
+	const ctx = canvas.getContext('2d');
+	const dia = canvas.width;
 	const rad = dia / 2;
 	const PI = Math.PI;
 	const TAU = 2 * PI;
-	const arc = TAU / sectors.length;
+	const arc = TAU / users.length;
 
 	const friction = 0.991; // 0.995=soft, 0.99=mid, 0.98=hard
 	let angVel = 0; // Angular velocity
@@ -65,8 +69,8 @@ onMount(() => {
 	};
 
 	function rotate() {
-		const sector = sectors[getIndex()];
-		ctx.canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
+		const sector = users[getIndex()];
+		canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
 		EL_spin.textContent = !angVel ? "SPIN" : sector.label;
 		EL_spin.style.background = sector.color;
 	}
@@ -86,7 +90,7 @@ onMount(() => {
 	}
 
 	// INIT
-	sectors.forEach(drawSector);
+	users.forEach(drawSector); 
 	rotate(); // Initial rotation
 	engine(); // Start engine
 	EL_spin.addEventListener("click", () => {
@@ -96,7 +100,12 @@ onMount(() => {
 	document.querySelector('.spinner').addEventListener("click", () => {
 		if (!angVel) angVel = rand(0.25, 0.35);
 	});
+
+	document.querySelector('textarea').addEventListener("keyup", () => { 
+		users.forEach(drawSector); 
+	})
 });
+ 
  
 </script>
 <div class="container-fluid h-screen">
@@ -107,8 +116,9 @@ onMount(() => {
 			src="https://wheel-decide.com/assets/img/giphy.gif"
 			alt="Wheel of names"
 		/> -->
+		{JSON.stringify(users)}
 		<div id="wheelOfFortune" class="w-auto">
-			<canvas id="wheel" width="500" height="500"></canvas>
+			<canvas bind:this={canvas} id="wheel" width="500" height="500"></canvas>
 			<div id="spin">SPIN</div> 
 		</div>
 		<div class="w-1/3 shadow"> 
@@ -119,13 +129,11 @@ onMount(() => {
 				<span>Collections</span>
 			</button>
 			<div class="md:flex-1 mt-2 mb:mt-0 md:px-3">
-				<legend class="font-bold tracking-wide text-sm">Description</legend> 
-				<textarea class="w-full h-64 shadow-inner p-4 border-0  text-left truncate" placeholder="Enter space for new word">
-				 {users.join('\n')}
-				</textarea> 
+				<legend class="font-bold tracking-wide text-sm">Names</legend> 
+				<textarea bind:value={text} on:keyup={addNames} class="w-full h-64 shadow-inner p-4 border-0  text-left truncate" placeholder="Enter space for new word"></textarea> 
 			</div>
 			<div class="flex flex-col mt-2 mb:mt-0 md:px-3">
-				<button class="button rounded flex justify-center shadow w-full text-white bg-purple-700 hover:bg-purple-600 hover:text-gray-300 p-2 m-1">
+				<button class="button save rounded flex justify-center shadow w-full text-white bg-purple-700 hover:bg-purple-600 hover:text-gray-300 p-2 m-1">
 					<svg xmlns="http://www.w3.org/2000/svg" class="group-hover:text-light-blue-600 text-light-blue-500 mr-2" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
 					</svg>
