@@ -22,6 +22,7 @@ import { calculateWinner, store } from '../stores/tic-tac-toe';
 
 	let status;
 	let winner;
+	let started = false;
 	store.subscribe(store => {
 		winner = calculateWinner(store.history[store.history.length - 1].board);
 		if (winner) {
@@ -64,6 +65,12 @@ import { calculateWinner, store } from '../stores/tic-tac-toe';
 	.game-info {
 		margin: auto;
 	}
+
+	.game-words {
+		margin: auto;
+		font-size: 3em;
+		color: #404040;
+	}
 	ol {
 		margin: auto;
     display: flex;
@@ -100,6 +107,13 @@ import { calculateWinner, store } from '../stores/tic-tac-toe';
   <div class='game-info'>
 		<div>{status}</div>
 	</div>
+	<div class="game-words">
+		 <p>{started ? "Apple" : "Say the words you see!"}</p>
+		 <br/>
+		 <svg xmlns="http://www.w3.org/2000/svg" class={`h-7 w-7 m-auto p-1 rounded bg-green-500 ${started ? "animate-pulse" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+		</svg>
+	</div>
 	<div class='game-board'>
 	  <Board/>
 	</div>
@@ -109,7 +123,7 @@ import { calculateWinner, store } from '../stores/tic-tac-toe';
 			{#if move}
 			<button>Go to move # { move }</button>
 			{:else}
-			<button>Start Game</button>
+			<button on:click={() => started = true}>Start Game</button>
 			{/if}
 		</li>
 		{/each}
