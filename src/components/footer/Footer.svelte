@@ -29,6 +29,9 @@
 					<li class="mt-2">
 						<a href="/score-keeper" class="hover:underline text-gray-600 hover:text-orange-500">Score Keeper</a>
 					</li>
+					<li class="mt-2">
+						<a href="/esl-words-sorter" class="hover:underline text-gray-600 hover:text-orange-500">ESL Words Sorter</a>
+					</li>
 				</ul>
 			</div>
 			<div class="w-full md:w-1/4 text-center md:text-left ">
