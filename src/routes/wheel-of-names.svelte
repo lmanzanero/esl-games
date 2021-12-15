@@ -10,6 +10,12 @@ import { onMount } from "svelte";
 
  export let users = [];
  let canvas;
+ let isModalOpen = false;
+
+ function toggleModal() {
+		console.log("toggle");
+		return isModalOpen = !isModalOpen;
+ }
  
 
 wheelStore.subscribe(data => users = data.users);
@@ -118,13 +124,15 @@ onMount(() => {
 			<div id="spin">SPIN</div> 
 		</div>
 		<div class="w-1/3 shadow"> 
-			<button class="text-white bg-purple-700 hover:bg-purple-600 hover:text-gray-300 py-2 px-6 m-2 rounded-full flex"> 
+			<button on:click={toggleModal} class="text-white bg-purple-700 hover:bg-purple-600 hover:text-gray-300 py-2 px-6 m-2 rounded-full flex"> 
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
 				</svg>
 				<span>Collections</span>
 			</button>
 			<div class="md:flex-1 mt-2 mb:mt-0 md:px-3">
+				<label>Name</label>
+					<input type="text" placeholder="Collection Name" class="w-full bg-gray-100 p-2 mt-2 mb-3" />
 				<legend class="font-bold tracking-wide text-sm">Names</legend> 
 				<textarea bind:value={text} on:keyup={addNames} class="w-full h-64 shadow-inner p-4 border-0  text-left truncate" placeholder="Enter space for new word"></textarea> 
 			</div>
@@ -141,6 +149,54 @@ onMount(() => {
 					</svg>
 					Spin
 				</button>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class={`fixed z-10 overflow-y-auto top-0 w-full left-0 ${isModalOpen ? "hidden": ""}`} id="modal">
+		<div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+			<div class="fixed inset-0 transition-opacity">
+				<div class="absolute inset-0 bg-gray-900 opacity-75" />
+			</div>
+			<span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+			<div class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+				<div class="w-full flex overflow-x-scroll p-2">
+					<button class="text-white w-28 bg-purple-700 hover:bg-purple-600 hover:text-gray-300 py-2 px-6 m-auto rounded-full flex"> 
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+						</svg>
+						<span>Users</span>
+					</button>
+					<button class="text-white w-28 bg-purple-700 hover:bg-purple-600 hover:text-gray-300 py-2 px-6 m-auto rounded-full flex"> 
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+						</svg>
+						<span>Users</span>
+					</button>
+					<button class="text-white w-28 bg-purple-700 hover:bg-purple-600 hover:text-gray-300 py-2 px-6 m-2 m-auto rounded-full flex"> 
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+						</svg>
+						<span>Users</span>
+					</button>
+					<button class="text-white w-28 bg-purple-700 hover:bg-purple-600 hover:text-gray-300 py-2 px-6 m-auto rounded-full flex"> 
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+						</svg>
+						<span class="">Users</span>
+					</button>
+					
+				</div>
+				<div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+					<label>Name</label>
+					<input type="text" placeholder="Collection Name" class="w-full bg-gray-100 p-2 mt-2 mb-3" />
+					<legend class="font-bold tracking-wide text-sm">Names</legend> 
+					<textarea bind:value={text} on:keyup={addNames} class="w-full h-64 shadow-inner p-4 border-0  text-left truncate" placeholder="Enter space for new word"></textarea> 
+				</div>
+				<div class="bg-gray-200 px-4 py-3 text-right">
+					<button type="button" class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2" on:click={toggleModal}><i class="fas fa-times"></i> Cancel</button>
+					<button type="button" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"><i class="fas fa-plus"></i> Update</button>
+				</div>
 			</div>
 		</div>
 	</div>
