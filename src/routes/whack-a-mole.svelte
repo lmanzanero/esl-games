@@ -72,6 +72,8 @@
 			setTimeout(() => {
 				hole.classList.remove('up');
 				if (!timeUp) peep();
+				if (speech.includes(hole.textContent)) score++;
+				speech = '';
 			}, time);
 		}
 	});
