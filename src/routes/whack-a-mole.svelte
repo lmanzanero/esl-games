@@ -91,6 +91,25 @@
 		name="description"
 		content="A fun interactive, real time Whack a mole game. Use your voice to walk moles and words from your screen!"
 	/>
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://esl-games.vercel.app/whack-a-mole" />
+	<meta property="og:title" content="ESL Whack a Mole" />
+	<meta
+		property="og:description"
+		content="A fun interactive, real time Whack a mole game. Use your voice to walk moles and words from your screen!"
+	/>
+	<meta property="og:image" content="https://esl-games.vercel.app/whack-a-mole.png" />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://esl-games.vercel.app/whack-a-mole" />
+	<meta property="twitter:title" content="ESL Whack a Mole" />
+	<meta
+		property="twitter:description"
+		content="A fun interactive, real time Whack a mole game. Use your voice to walk moles and words from your screen!"
+	/>
+	<meta property="twitter:image" content="https://esl-games.vercel.app/whack-a-mole.png" />
 </svelte:head>
 <div class="game-container">
 	<h1>Whack-a-mole! <span class="score">{score}</span></h1>
