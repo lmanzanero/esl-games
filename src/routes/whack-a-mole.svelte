@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	let lastHole;
 	let timeUp = false;
-	let score = 10;
+	let score = 0;
 	let isListening = false;
 	let speech = '';
 	let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -75,7 +75,6 @@
 	});
 
 	function bonk(e) {
-		console.log(e.target);
 		if (!e.isTrusted) return; // cheater!
 		score++;
 		speech = '';
@@ -96,22 +95,22 @@
 	<h1>Whack-a-mole! <span class="score">{score}</span></h1>
 	<div class="game">
 		<div class="hole up hole1">
-			<div class="mole" on:click={bonk} />
+			<div class="mole" on:click={bonk}>Apple</div>
 		</div>
 		<div class="hole hole2">
-			<div class="mole" on:click={bonk} />
+			<div class="mole" on:click={bonk}>Red</div>
 		</div>
 		<div class="hole hole3">
-			<div class="mole" on:click={bonk} />
+			<div class="mole" on:click={bonk}>Christmas</div>
 		</div>
 		<div class="hole hole4">
-			<div class="mole" on:click={bonk} />
+			<div class="mole" on:click={bonk}>Phone</div>
 		</div>
 		<div class="hole hole5">
-			<div class="mole" on:click={bonk} />
+			<div class="mole" on:click={bonk}>Pizza</div>
 		</div>
 		<div class="hole hole6">
-			<div class="mole" on:click={bonk} />
+			<div class="mole" on:click={bonk}>Cookie</div>
 		</div>
 	</div>
 	<button
@@ -175,7 +174,7 @@
 		height: 400px;
 		display: flex;
 		flex-wrap: wrap;
-		margin: 4em auto;
+		margin: 2em auto;
 	}
 
 	.hole {
@@ -198,11 +197,15 @@
 
 	.mole {
 		background: url('/mole.svg') bottom center no-repeat;
-		background-size: 60%;
+		background-size: 50%;
 		position: absolute;
 		top: 100%;
 		width: 100%;
 		height: 100%;
+		color: #2c394b;
+		text-align: center;
+		font-size: larger;
+		font-weight: bolder;
 		transition: all 0.4s;
 	}
 
