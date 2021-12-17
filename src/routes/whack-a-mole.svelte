@@ -36,15 +36,12 @@
 			speech = '';
 			peep();
 			console.log('Starting Game');
-			if (isListening) {
-				recognition.start();
-			} else {
-				recognition.stop();
-			}
+			recognition.start();
 			setTimeout(() => {
 				timeUp = true;
 				isListening = false;
 				speech = '';
+				recognition.stop();
 			}, 10000);
 		}
 
