@@ -213,4 +213,37 @@
 	.hole.up .mole {
 		top: 0;
 	}
+
+	@media only screen and (max-width: 600px) {
+		h1 {
+			text-align: center;
+			font-size: 3rem;
+			line-height: 1;
+			padding: 0.2em;
+			font-family: 'Amatic SC', cursive;
+		}
+		.game {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			width: 100%;
+		}
+
+		.mole {
+			background: url('/mole.svg') bottom center no-repeat;
+			background-size: 30%;
+			position: absolute;
+			top: 100%;
+			width: 100%;
+			height: 100%;
+			color: #2c394b;
+			text-align: center;
+			font-size: larger;
+			font-weight: bolder;
+			transition: all 0.4s;
+		}
+
+		.hole.up .mole {
+			top: 0;
+		}
+	}
 </style>
