@@ -78,7 +78,6 @@
 		if (!e.isTrusted) return; // cheater!
 		score++;
 		speech = '';
-		recognition.start();
 		this.parentNode.classList.remove('up');
 	}
 </script>
