@@ -4,9 +4,21 @@
 	let timeUp = false;
 	let score = 10;
 	let isListening = false;
+	let speech = '';
+	let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+	const recognition = new SpeechRecognition();
+	recognition.interimResults = true;
+	recognition.addEventListener('result', (e) => {
+		const transcript = Array.from(e.results)
+			.map((result) => result[0])
+			.map((result) => result.transcript)
+			.join('');
+		speech = transcript;
+	});
 
 	onMount(() => {
 		const holes = document.querySelectorAll('.hole');
+
 		function peep() {
 			const hole = randomHole(holes);
 			hole.classList.add('up');
@@ -19,11 +31,18 @@
 		function startGame() {
 			timeUp = false;
 			score = 0;
+			speech = '';
 			peep();
 			console.log('Starting Game');
+			if (isListening) {
+				recognition.start();
+			} else {
+				recognition.stop();
+			}
 			setTimeout(() => {
 				timeUp = true;
 				isListening = false;
+				speech = '';
 			}, 10000);
 		}
 
@@ -59,6 +78,8 @@
 		console.log(e.target);
 		if (!e.isTrusted) return; // cheater!
 		score++;
+		speech = '';
+		recognition.start();
 		this.parentNode.classList.remove('up');
 	}
 </script>
@@ -119,7 +140,7 @@
 		{!isListening ? 'Start Game' : 'Listening ...'}
 	</button>
 	<p class="text-center p-4 m-auto text-white text-base font-semibold">
-		You Said: <span class="text-green-700">Hello</span>
+		You Said: <span class="text-green-700">{speech}</span>
 	</p>
 </div>
 
