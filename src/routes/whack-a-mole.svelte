@@ -1,114 +1,123 @@
+<script>
+	import { onMount } from 'svelte';
+	let lastHole;
+	let timeUp = false;
+	let score = 10;
+
+	onMount(() => {
+		const holes = document.querySelectorAll('.hole');
+		function peep() {
+			const hole = randomHole(holes);
+			hole.classList.add('up');
+			setTimeout(() => {
+				hole.classList.remove('up');
+				if (!timeUp) peep();
+			}, 2000);
+		}
+
+		function startGame() {
+			timeUp = false;
+			score = 0;
+			peep();
+			console.log('Starting Game');
+			setTimeout(() => (timeUp = true), 10000);
+		}
+
+		document.querySelector('.start').addEventListener('click', startGame);
+
+		function randomHole(holes) {
+			const idx = Math.floor(Math.random() * holes.length);
+			const hole = holes[idx];
+			if (hole === lastHole) {
+				console.log('Ah nah thats the same one bud');
+				return randomHole(holes);
+			}
+			lastHole = hole;
+			return hole;
+		}
+
+		function randomTime(min, max) {
+			return Math.round(Math.random() * (max - min) + min);
+		}
+
+		function peep() {
+			const time = randomTime(200, 1000);
+			const hole = randomHole(holes);
+			hole.classList.add('up');
+			setTimeout(() => {
+				hole.classList.remove('up');
+				if (!timeUp) peep();
+			}, time);
+		}
+	});
+
+	function bonk(e) {
+		console.log(e.target);
+		if (!e.isTrusted) return; // cheater!
+		score++;
+		this.parentNode.classList.remove('up');
+	}
+</script>
 
 <svelte:head>
 	<!-- elements go here -->
 	<title>ESL Whack a Mole</title>
-	<meta name="description" content="A fun interactive, real time Whack a mole game. Use your voice to walk moles and words from your screen!">
+	<meta
+		name="description"
+		content="A fun interactive, real time Whack a mole game. Use your voice to walk moles and words from your screen!"
+	/>
 </svelte:head>
-<script>
-import { onMount } from "svelte";
-  let lastHole;
-  let timeUp = false;
-  let score = 10;  
-
-  onMount(() => {
-    const holes = document.querySelectorAll('.hole');    
-    function peep() { 
-      const hole = randomHole(holes);
-      hole.classList.add('up');
-      setTimeout(() => {
-        hole.classList.remove('up');
-        if (!timeUp) peep();
-      }, 2000);
-    }
-
-    function startGame() {
-      timeUp = false;
-      score = 0;
-      peep();
-      console.log("Starting Game")
-      setTimeout(() => timeUp = true, 10000)
-    }
-
-    // startGame();
-  })
-
- 
-   
-  function randomHole(holes) {
-    console.log("all holes: ", holes.target);
-    const idx = Math.floor(Math.random() * holes.length);
-    const hole = holes[idx];
-    if (hole === lastHole) {
-      console.log('Ah nah thats the same one bud');
-      return randomHole(holes);
-    }
-    lastHole = hole;
-    return hole;
-  }
- 
-
-  // function randomTime(min, max) {
-  //   return Math.round(Math.random() * (max - min) + min);
-  // }
-
- 
-
-  function bonk(e) {
-    console.log(e.target);
-    if(!e.isTrusted) return; // cheater!
-    score++;
-    this.parentNode.classList.remove('up');
-    // @ts-ignore
-    scoreBoard.textContent = score;
-  }
-</script>
 <div class="game-container">
-  <h1>Whack-a-mole! <span class="score">{score}</span></h1>
-  <div class="game">
-      <div class="hole up hole1">
-        <div class="mole" on:click={bonk}></div>
-      </div>
-      <div class="hole hole2">
-        <div class="mole" on:click={bonk}></div>
-      </div>
-      <div class="hole hole3">
-        <div class="mole" on:click={bonk}></div>
-      </div>
-      <div class="hole hole4">
-        <div class="mole" on:click={bonk}></div>
-      </div>
-      <div class="hole hole5">
-        <div class="mole" on:click={bonk}></div>
-      </div>
-      <div class="hole hole6">
-        <div class="mole" on:click={bonk}></div>
-      </div> 
-  </div> 
-  <button class="bg-indigo-600 flex justify-center text-white text-base font-semibold m-auto px-6 py-2 rounded-lg" >Start Game</button>
+	<h1>Whack-a-mole! <span class="score">{score}</span></h1>
+	<div class="game">
+		<div class="hole up hole1">
+			<div class="mole" on:click={bonk} />
+		</div>
+		<div class="hole hole2">
+			<div class="mole" on:click={bonk} />
+		</div>
+		<div class="hole hole3">
+			<div class="mole" on:click={bonk} />
+		</div>
+		<div class="hole hole4">
+			<div class="mole" on:click={bonk} />
+		</div>
+		<div class="hole hole5">
+			<div class="mole" on:click={bonk} />
+		</div>
+		<div class="hole hole6">
+			<div class="mole" on:click={bonk} />
+		</div>
+	</div>
+	<button
+		class="bg-indigo-600 start flex justify-center text-white text-base font-semibold m-auto px-6 py-2 rounded-lg"
+		>Start Game</button
+	>
 </div>
+
 <style>
-  @tailwind base;
-  @tailwind components;
+	@tailwind base;
+	@tailwind components;
 	@tailwind utilities;
- .game-container {  
-    height: 100vh;
-    width: 100vw;
-    background: #00b7ff;
+	.game-container {
+		height: 100vh;
+		width: 100vw;
+		background: #00b7ff;
 		padding: 0;
 		margin: 0;
-  } 
+	}
 
 	h1 {
 		text-align: center;
 		font-size: 4rem;
 		line-height: 1;
 		padding: 0.2em;
-    font-family: 'Amatic SC', cursive;
+		font-family: 'Amatic SC', cursive;
 	}
 
 	.score {
 		background: rgba(255, 255, 255, 0.2);
-		padding: 0 2rem; 
+		padding: 0 2rem;
 		border-radius: 1rem;
 	}
 
