@@ -5,22 +5,21 @@
 	let score = 0;
 	let isListening = false;
 	let speech = '';
-	let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-	const recognition = new SpeechRecognition();
-	recognition.interimResults = true;
-	recognition.continuous = true;
-	recognition.addEventListener('result', (e) => {
-		const transcript = Array.from(e.results)
-			.map((result) => result[0])
-			.map((result) => result.transcript)
-			.join('');
-		speech = transcript;
-		console.log(transcript);
-	});
 
 	onMount(() => {
 		const holes = document.querySelectorAll('.hole');
-
+		let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+		const recognition = new SpeechRecognition();
+		recognition.interimResults = true;
+		recognition.continuous = true;
+		recognition.addEventListener('result', (e) => {
+			const transcript = Array.from(e.results)
+				.map((result) => result[0])
+				.map((result) => result.transcript)
+				.join('');
+			speech = transcript;
+			console.log(transcript);
+		});
 		function peep() {
 			const hole = randomHole(holes);
 			hole.classList.add('up');
@@ -111,6 +110,7 @@
 	/>
 	<meta property="twitter:image" content="https://esl-games.vercel.app/whack-a-mole.png" />
 </svelte:head>
+<svelte:window />
 <div class="game-container">
 	<h1>Whack-a-mole! <span class="score">{score}</span></h1>
 	<div class="game">
