@@ -40,6 +40,6 @@
 		width: 60vw;
 		line-height: 1.77778;
 		font-weight: 400;
-		margin: auto;
+		margin: 6em auto;
 	}
 </style>
