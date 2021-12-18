@@ -10,6 +10,7 @@
 </script>
 
 <script>
+	import Footer from '../../components/footer/Footer.svelte';
 	import Header from '../../components/header/Header.svelte';
 
 	export let post;
@@ -29,6 +30,7 @@
 	</div>
 	{@html post.content.html}
 </article>
+<Footer />
 
 <style>
 	h1 {

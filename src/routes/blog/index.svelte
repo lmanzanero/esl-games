@@ -19,6 +19,7 @@
 </script>
 
 <script>
+	import Footer from '../../components/footer/Footer.svelte';
 	import Header from '../../components/header/Header.svelte';
 
 	export let posts;
@@ -92,6 +93,7 @@
 		</div>
 	{/each}
 </div>
+<Footer />
 
 <style>
 	.posts {
