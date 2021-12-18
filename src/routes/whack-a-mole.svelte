@@ -18,7 +18,6 @@
 				.map((result) => result.transcript)
 				.join('');
 			speech = transcript;
-			console.log(transcript);
 		});
 		function peep() {
 			const hole = randomHole(holes);

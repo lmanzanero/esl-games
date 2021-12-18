@@ -1,31 +1,19 @@
-<!-- <script context="module">
-  const allPosts = import.meta.glob("../../blog/*.{md,svx}");
-  let body = [];
-  for (let path in allPosts) {
-    body.push(
-      allPosts[path]().then(({ metadata }) => {
-        return { path, metadata };
-      })
-    );
-  }
-  export const load = async ({ page }) => {
-    const posts = await Promise.all(body);
-    const { slug } = page.params;
-    console.log(posts[0]);
-    console.log(slug);
-    const filteredPosts = posts.filter((post) => {
-      return post.metadata.tags.includes(slug);
-    });
-    return {
-      props: {
-        filteredPosts,
-        slug,
-      },
-    };
-  };
+<script context="module">
+	export async function load({ page, fetch }) {
+		const post = await fetch(`${page.path}.json`).then((res) => res.json());
+		return {
+			props: {
+				post
+			}
+		};
+	}
 </script>
 
 <script>
-  export let filteredPosts;
-  export let tag;
-</script> -->
+	export let post;
+</script>
+
+{@html post.content.html}
+<svelte:head>
+	<title>{post.metaData.title}</title>
+</svelte:head>
