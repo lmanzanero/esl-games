@@ -5,17 +5,9 @@ tags:
 date: 2021-06-21
 ---
 
-# {title}
-<small>{new Date(date).toDateString()}</small>
+## Москва
+![Москва][moscow]
+Столица России, город федерального значения. Крупнейший по численности населения город России.
 
 
-Top 10 ESL Online Tools 2021
-
-Top 10 ESL Online Games 2021
-
-# This is a Heading h1 
-
-## Emphasis
-
-*This text will be italic*  
-_This will also be italic_
+[moscow]: https://traveltimes.ru/wp-content/uploads/2021/05/blobid1532423350796-scaled.jpg 
