@@ -45,7 +45,7 @@
 <Header />
 <article>
 	<h1>{post.metaData.title}</h1>
-	<p>Published: <span>{new Date(post.metaData.date).toLocaleDateString()}</span></p>
+	<p class="date">Published: <span>{new Date(post.metaData.date).toLocaleDateString()}</span></p>
 	<div class="categories">
 		{#each post.metaData.tags as tag}
 			<a class="tag" href={`/tags/${tag}`}>#{tag}</a>
@@ -58,11 +58,34 @@
 <style>
 	h1 {
 		font-weight: bolder;
+		font-size: 2em;
+		color: cadetblue;
 	}
+	.date {
+		font-size: large;
+		font-weight: bold;
+		color: dimgray;
+	}
+
+	a {
+		color: cadetblue;
+		font-weight: bold;
+	}
+
+	a:hover {
+		color: rgb(86, 121, 122);
+	}
+
 	article {
 		width: 60vw;
 		line-height: 1.77778;
-		font-weight: 400;
 		margin: 6em auto;
+		font-size: large;
+	}
+	@media only screen and (max-width: 600px) {
+		article {
+			width: 90vw;
+			margin: 1em;
+		}
 	}
 </style>
