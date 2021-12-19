@@ -115,7 +115,7 @@
 		grid-template-columns: 250px auto;
 		transition: all 0.5s;
 		border-radius: 0.3em;
-		cursor: pointer;
+		color: dimgray;
 		overflow: hidden;
 	}
 
@@ -128,6 +128,8 @@
 		font-size: 1.3em;
 		margin: 0;
 		padding: 0;
+		color: cadetblue;
+		cursor: pointer;
 	}
 
 	.post .content {
@@ -142,7 +144,8 @@
 	}
 
 	.post .content .categories a {
-		color: var(--bg-accent);
+		color: cadetblue;
+		padding-right: 0.4em;
 	}
 
 	.post .content .categories a:hover {
@@ -199,7 +202,6 @@
 	.post .author .name {
 		position: relative;
 		margin: auto 0.1em;
-		color: var(--bg-accent);
 		cursor: pointer;
 		transition: all 0.5s;
 	}
@@ -213,6 +215,26 @@
 		margin-top: auto;
 		margin-bottom: auto;
 		margin-left: auto;
-		color: var(--bg-accent);
+	}
+
+	@media only screen and (max-width: 600px) {
+		.posts {
+			width: 100vw;
+			margin: 0;
+			padding: 0;
+		}
+
+		.posts .post {
+			display: grid;
+			grid-template-rows: 220px auto;
+			grid-template-columns: 1fr;
+			height: 400px;
+			width: 90%;
+		}
+
+		.post .content {
+			flex-direction: column;
+			height: auto;
+		}
 	}
 </style>
