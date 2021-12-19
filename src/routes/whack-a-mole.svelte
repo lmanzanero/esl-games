@@ -1,5 +1,4 @@
 <script>
-	import Microphone from '../components/microphone/Microphone.svelte';
 	import { onMount } from 'svelte';
 	let lastHole;
 	let timeUp = false;
