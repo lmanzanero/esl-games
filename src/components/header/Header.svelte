@@ -1,13 +1,14 @@
 <script>
-  let isMenuHidden = false;  
-  function toggleMenu () {
-    console.log("menu: ", isMenuHidden)
-    return isMenuHidden = !isMenuHidden;
-  }
+	let isMenuHidden = false;
+	function toggleMenu() {
+		console.log('menu: ', isMenuHidden);
+		return (isMenuHidden = !isMenuHidden);
+	}
 </script>
+
 <header>
-  <nav
-     class="
+	<nav
+		class="
        flex flex-wrap
        items-center
        justify-between
@@ -18,67 +19,64 @@
        text-lg text-gray-700
        bg-white
      "
-   >
-    <div class="h-6 w-6 ml-10">
-       <a href="/">
-          <img src="/esl-logo.png" alt="Esl real time games logo"/>
-       </a>
-     </div>
-    
-      <svg
-         xmlns="http://www.w3.org/2000/svg"
-         id="menu-button"
-         class="h-6 w-6 cursor-pointer md:hidden block"
-         fill="none"
-         viewBox="0 0 24 24"
-         stroke="currentColor"
-         on:click={toggleMenu}
-       >
-         <path
-           stroke-linecap="round"
-           stroke-linejoin="round"
-           stroke-width="2"
-           d="M4 6h16M4 12h16M4 18h16"
-         />
-       </svg>
-    
-    <div class={`${isMenuHidden ? 'hidden' : ''} w-full md:flex md:items-center md:w-auto`} id="menu">
-       <ul
-         class="
+	>
+		<div class="h-6 w-6 ml-10">
+			<a href="/">
+				<img src="/esl-logo.png" alt="Esl real time games logo" />
+			</a>
+		</div>
+
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			id="menu-button"
+			class="h-6 w-6 cursor-pointer md:hidden block"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke="currentColor"
+			on:click={toggleMenu}
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M4 6h16M4 12h16M4 18h16"
+			/>
+		</svg>
+
+		<div
+			class={`${!isMenuHidden ? 'hidden' : ''} w-full md:flex md:items-center md:w-auto`}
+			id="menu"
+		>
+			<ul
+				class="
            pt-4
            text-base text-gray-700
            md:flex
            md:justify-between 
            md:pt-0"
-       >
-         <li>
-           <a class="md:p-4 py-2 block hover:text-purple-400" href="/games"
-             >Games</a
-           >
-         </li>
-         <li>
-           <a class="md:p-4 py-2 block hover:text-purple-400" href="/about"
-             >About</a
-           >
-         </li>
-         <!-- <li>
+			>
+				<li>
+					<a class="md:p-4 py-2 block hover:text-purple-400" href="/games">Games</a>
+				</li>
+				<li>
+					<a class="md:p-4 py-2 block hover:text-purple-400" href="/about">About</a>
+				</li>
+				<!-- <li>
            <a class="md:p-4 py-2 block hover:text-purple-400" href="/"
              >Pricing</a
            >
          </li> -->
-         <li>
-           <a class="md:p-4 py-2 block hover:text-purple-400" href="/blog"
-             >Blog</a
-           >
-         </li>
-         <!-- <li>
+				<li>
+					<a class="md:p-4 py-2 block hover:text-purple-400" href="/blog">Blog</a>
+				</li>
+				<!-- <li>
            <a
              class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
              href="/"
              >Sign Up</a
            >
          </li> -->
-       </ul>
-     </div>
- </nav>
+			</ul>
+		</div>
+	</nav>
 </header>

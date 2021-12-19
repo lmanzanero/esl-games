@@ -132,6 +132,10 @@
 		cursor: pointer;
 	}
 
+	.post .content .title:hover {
+		color: rgb(78, 119, 121);
+	}
+
 	.post .content {
 		display: flex;
 		flex-direction: column;
