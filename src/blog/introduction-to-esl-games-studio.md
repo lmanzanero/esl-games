@@ -2,8 +2,16 @@
 title: An Introduction to ESL Games Studio
 tags: 
   - eslgames 
+  - esltools
 date: 2021-06-21
+author: Luis Manzanero 
 ---
+
+## Whack a Mole
+<figure>
+  <img src="https://esl-games.vercel.app/whack-a-mole.png" />
+  <figcaption> A fun interactive, real time Whack a mole game. Use your voice to walk moles and words from your screen!<figcaption>
+</figure>
 
 ## Whack a Mole
 ![Whackamole][whackamole]

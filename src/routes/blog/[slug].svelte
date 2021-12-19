@@ -67,6 +67,11 @@
 		color: dimgray;
 	}
 
+	.categories {
+		display: flex;
+		gap: 0.5em;
+	}
+
 	a {
 		color: cadetblue;
 		font-weight: bold;
@@ -80,7 +85,25 @@
 		width: 60vw;
 		line-height: 1.77778;
 		margin: 6em auto;
-		font-size: large;
+	}
+
+	:global(article figure img) {
+		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+		border-radius: 0.3em;
+		margin-top: 1em;
+	}
+
+	:global(article figure figcaption) {
+		font-family: monospace;
+		text-align: center;
+		padding: 1em;
+		font-style: italic;
+	}
+
+	:global(h2) {
+		font-size: 1.5em !important;
+		font-weight: bolder !important;
+		color: dimgray;
 	}
 	@media only screen and (max-width: 600px) {
 		article {

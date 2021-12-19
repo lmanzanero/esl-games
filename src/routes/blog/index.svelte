@@ -23,6 +23,7 @@
 	import Header from '../../components/header/Header.svelte';
 
 	export let posts;
+	console.log(posts);
 	// @ts-ignore
 	const dateSortedPosts = posts.slice().sort((post1, post2) => {
 		// @ts-ignore
@@ -64,10 +65,13 @@
 	and ideas.
 </p>
 <div class="posts">
-	{#each dateSortedPosts as { path, metadata: { title, tags, date } }}
+	{#each dateSortedPosts as { path, metadata: { title, tags, date, author, image } }}
 		<div class="post">
 			<div class="img-container">
-				<img src="https://esl-games.vercel.app/esl-social.jpg" alt="Esl Blog title" />
+				<img
+					src={image ? image : 'https://esl-games.vercel.app/esl-social.jpg'}
+					alt="Esl Blog title"
+				/>
 			</div>
 			<div class="content">
 				<div class="categories">
@@ -86,7 +90,7 @@
 							alt=""
 						/>
 					</div>
-					<div class="name">Luis Manzanero</div>
+					<div class="name">{author ? author : 'ESL Team'}</div>
 					<div class="date">{new Date(date).toLocaleDateString()}</div>
 				</div>
 			</div>
