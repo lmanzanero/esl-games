@@ -5,7 +5,7 @@
 <!-- <label>Name</label>
 <input type="text" placeholder="Collection Name" class="w-full bg-gray-100 p-2 mt-2 mb-3" /> -->
 <legend class="font-bold tracking-wide text-sm py-2"
-	>Words <span class="text-red-400">Notice: Feature not available yet!</span></legend
+	>Words <span class="text-red-400">Notice: Add atleast 6 names!</span></legend
 >
 <textarea
 	bind:value={$whackaMoleStore.names}
