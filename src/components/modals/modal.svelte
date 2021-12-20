@@ -1,17 +1,18 @@
 <script>
+	import { whackaMoleStore } from '../../stores/whack-a-mole';
+
 	export let isModalOpen;
 	export let toggleModal;
-	let names = '';
 	let canSubmit = true;
-
 	function addNames() {
-		console.log(names);
-		//convert string to array
-		let namesArr = names.split('\n');
+		//save names to local storage or db
+		console.log($whackaMoleStore.names);
+		// close modal
+		toggleModal();
 	}
 
 	$: {
-		if (names.split('\n').length >= 6) {
+		if ($whackaMoleStore.names.split('\n').length >= 6) {
 			canSubmit = false;
 		} else {
 			canSubmit = true;

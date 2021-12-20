@@ -178,7 +178,7 @@
 	</p>
 </div>
 <Modal {isModalOpen} {toggleModal}>
-	<NamesInput names={''} />
+	<NamesInput />
 </Modal>
 
 <style>

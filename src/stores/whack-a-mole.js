@@ -1,10 +1,10 @@
 import { writable } from "svelte/store";
 
-const defaultUsers = {
-	users: ['user1']
+const defaultState = {
+	names: ''
 }
 function createWhackaMoleStore() {
-  const { subscribe, set, update,  } = writable(defaultUsers)
+  const { subscribe, set, update,  } = writable(defaultState)
   return {
     subscribe,
     set,
@@ -13,4 +13,4 @@ function createWhackaMoleStore() {
 }
 
 
-export const wheelStore = createWhackaMoleStore();
+export const whackaMoleStore = createWhackaMoleStore();

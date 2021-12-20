@@ -1,5 +1,5 @@
 <script>
-	export let names;
+	import { whackaMoleStore } from '../../stores/whack-a-mole';
 </script>
 
 <!-- <label>Name</label>
@@ -8,7 +8,7 @@
 	>Words <span class="text-red-400">Notice: Feature not available yet!</span></legend
 >
 <textarea
-	bind:value={names}
+	bind:value={$whackaMoleStore.names}
 	class="w-full h-64 shadow-inner p-4 border-0  text-left truncate"
 	placeholder="Enter space for new word"
 />
