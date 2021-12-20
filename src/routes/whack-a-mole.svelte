@@ -2,6 +2,7 @@
 	import NamesInput from '../components/whack-a-mole/NamesInput.svelte';
 	import { onMount } from 'svelte';
 	import Modal from '../components/modals/modal.svelte';
+	import { whackaMoleStore } from '../stores/whack-a-mole';
 	let lastHole;
 	let timeUp = false;
 	let score = 0;
@@ -66,10 +67,14 @@
 			return Math.round(Math.random() * (max - min) + min);
 		}
 
+		function randomWord(words) {
+			return words.split('\n')[Math.floor(Math.random() * words.split('\n').length)];
+		}
+
 		function peep() {
 			const time = randomTime(200, 1000);
 			const hole = randomHole(holes);
-			console.log(hole);
+			console.log((hole.children[0].textContent = randomWord($whackaMoleStore.names)));
 			hole.classList.add('up');
 			setTimeout(() => {
 				hole.classList.remove('up');
