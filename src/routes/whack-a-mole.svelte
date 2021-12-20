@@ -1,4 +1,5 @@
 <script>
+	import NamesInput from '../components/whack-a-mole/NamesInput.svelte';
 	import { onMount } from 'svelte';
 	import Modal from '../components/modals/modal.svelte';
 	let lastHole;
@@ -176,7 +177,9 @@
 		You Said: <span class="text-green-700">{speech}</span>
 	</p>
 </div>
-<Modal {isModalOpen} {toggleModal} />
+<Modal {isModalOpen} {toggleModal}>
+	<NamesInput names={''} />
+</Modal>
 
 <style>
 	@tailwind base;
