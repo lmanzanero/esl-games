@@ -2,7 +2,7 @@
 export async function get({ params }) { 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const allPosts = import.meta.glob('../../blog/*.{md,svx}'); 
+  const allPosts = import.meta.glob('../../blog/*.{md,svx}');  
   let match;
 	for (const [path, resolver] of Object.entries(allPosts)) {
 		if (path.includes(params.slug)) {

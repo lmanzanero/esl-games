@@ -23,7 +23,6 @@
 	import Header from '../../components/header/Header.svelte';
 
 	export let posts;
-	console.log(posts);
 	// @ts-ignore
 	const dateSortedPosts = posts.slice().sort((post1, post2) => {
 		// @ts-ignore
@@ -79,7 +78,9 @@
 						<a class="tag" href={`/tags/${tag}`}>#{tag}</a>
 					{/each}
 				</div>
-				<a href={`/blog/${path.replace('.md', '').replace('.svx', '')}`}
+				<!-- Slicing to remove ../../ from blog route -->
+				<!-- Todo: Add index.json to remove this issue -->
+				<a href={`${path.slice(5).replace('.md', '').replace('.svx', '')}`}
 					><h1 class="title">{title}</h1></a
 				>
 				<p class="exerpt">Exerpt</p>
@@ -133,7 +134,7 @@
 	}
 
 	.post .content .title:hover {
-		color: rgb(78, 119, 121);
+		color: cadetblue;
 	}
 
 	.post .content {
