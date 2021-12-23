@@ -8,43 +8,65 @@
 
 
 <url>
-  <loc>https://esl-games.vercel.app/</loc> 
-  <changefreq>never</changefreq>
+  <loc>https://esl-games.vercel.app/</loc>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://esl-games.vercel.app/about</loc> 
-  <changefreq>never</changefreq>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://esl-games.vercel.app/games</loc> 
-  <changefreq>never</changefreq>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://esl-games.vercel.app/score-keeper</loc> 
-  <changefreq>never</changefreq>
+  <loc>https://esl-games.vercel.app/games</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://esl-games.vercel.app/tic-tac-toe</loc> 
-  <changefreq>never</changefreq>
+  <loc>https://esl-games.vercel.app/about</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://esl-games.vercel.app/whack-a-mole</loc> 
-  <changefreq>never</changefreq>
+  <loc>https://esl-games.vercel.app/blog</loc>
   <priority>0.80</priority>
 </url>
-<url> 
-  <loc>https://esl-games.vercel.app/wheel-of-names</loc> 
-  <changefreq>never</changefreq>
+<url>
+  <loc>https://esl-games.vercel.app/score-keeper</loc>
   <priority>0.80</priority>
 </url>
-<url> 
-  <loc>https://esl-games.vercel.app/esl-words-sorter</loc> 
-  <changefreq>never</changefreq>
+<url>
+  <loc>https://esl-games.vercel.app/tic-tac-toe</loc>
   <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://esl-games.vercel.app/whack-a-mole</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://esl-games.vercel.app/wheel-of-names</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://esl-games.vercel.app/live-quiz</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://esl-games.vercel.app/esl-words-sorter</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://esl-games.vercel.app/tags/eslgames</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://esl-games.vercel.app/tags/esltools</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://esl-games.vercel.app/blog/introduction-to-esl-games-studio</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://esl-games.vercel.app/blog/top-10-esl-online-games</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://esl-games.vercel.app/blog/top-10-esl-online-tools</loc>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
