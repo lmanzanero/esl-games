@@ -16,6 +16,7 @@
 	}
 
 	$: {
+		console.log(speech);
 		if ($whackaMoleStore.names.split('\n').length >= 6) {
 			canStart = true;
 		} else {
@@ -80,15 +81,15 @@
 		}
 
 		function peep() {
-			const time = randomTime(200, 1000);
+			const time = randomTime(200, 2000);
 			const hole = randomHole(holes);
 			console.log((hole.children[0].textContent = randomWord($whackaMoleStore.names)));
 			hole.classList.add('up');
+			speech = '';
 			setTimeout(() => {
 				hole.classList.remove('up');
 				if (!timeUp) peep();
 				if (speech.includes(hole.children[0].textContent)) score++;
-				speech = '';
 			}, time);
 		}
 	});
