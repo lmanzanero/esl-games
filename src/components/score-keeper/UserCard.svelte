@@ -61,7 +61,7 @@
 			class="flex-shrink-0 bg-blue-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-2 text-white py-2 px-3 rounded"
 			type="button"
 		>
-			-5
+			-1
 		</button>
 		<button
 			on:click={updateScore}
