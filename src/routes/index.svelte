@@ -83,6 +83,7 @@
 				class="rounded-lg h-96 m-1 object-cover shadow-lg"
 				src="score-keeper.png"
 				alt="Score Keeper - ESL Real Time Game"
+				title="Esl Score Keeper"
 			/>
 		</div>
 	</div>
@@ -92,6 +93,7 @@
 				class="rounded-lg h-96 m-auto object-cover shadow-lg"
 				src="tic-tac-toe.png"
 				alt="Tic Tac Toe - ESL Real Time Game"
+				title="Esl Tic Tac Toe"
 			/>
 		</div>
 		<div class="w-full md:w-1/2 pl-10">
@@ -119,6 +121,7 @@
 				class="rounded-lg h-96 m-auto object-cover shadow-lg"
 				src="whack-a-mole.png"
 				alt="Whack a Mole - ESL Real Time Game"
+				title="Esl Whack a mole"
 			/>
 		</div>
 	</div>
@@ -128,6 +131,7 @@
 				class="rounded-lg h-96 m-auto object-cover shadow-lg"
 				src="wheel-of-names.png"
 				alt="Wheel of names"
+				title="Wheel of names"
 			/>
 		</div>
 		<div class="w-full md:w-1/2 pl-10">
