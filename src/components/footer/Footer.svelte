@@ -80,8 +80,3 @@
 		</div>
 	</div>
 </footer>
-
-<style>
-	@tailwind base;
-	@tailwind components;
-</style>
