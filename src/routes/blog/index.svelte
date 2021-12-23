@@ -81,7 +81,7 @@
 				<!-- Slicing to remove ../../ from blog route -->
 				<!-- Todo: Add index.json to remove this issue -->
 				<a href={`${path.slice(5).replace('.md', '').replace('.svx', '')}`}
-					><h1 class="title">{title}</h1></a
+					><h3 class="title">{title}</h3></a
 				>
 				<p class="exerpt">Exerpt</p>
 				<div class="author">
