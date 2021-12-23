@@ -6,10 +6,14 @@
 				<h5 class="uppercase mb-6 font-bold">Popular Games</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="/tic-tac-toe" class="hover:underline text-gray-600 hover:text-orange-500">Tic Tac Toe</a>
+						<a href="/tic-tac-toe" class="hover:underline text-gray-600 hover:text-orange-500"
+							>Tic Tac Toe</a
+						>
 					</li>
 					<li class="mt-2">
-						<a href="/whack-a-mole" class="hover:underline text-gray-600 hover:text-orange-500">Whack a mole</a>
+						<a href="/whack-a-mole" class="hover:underline text-gray-600 hover:text-orange-500"
+							>Whack a mole</a
+						>
 					</li>
 					<li class="mt-2">
 						<a href="/live-quiz" class="hover:underline text-gray-600 hover:text-orange-500"
@@ -27,10 +31,14 @@
 						>
 					</li>
 					<li class="mt-2">
-						<a href="/score-keeper" class="hover:underline text-gray-600 hover:text-orange-500">Score Keeper</a>
+						<a href="/score-keeper" class="hover:underline text-gray-600 hover:text-orange-500"
+							>Score Keeper</a
+						>
 					</li>
 					<li class="mt-2">
-						<a href="/esl-words-sorter" class="hover:underline text-gray-600 hover:text-orange-500">ESL Words Sorter</a>
+						<a href="/esl-words-sorter" class="hover:underline text-gray-600 hover:text-orange-500"
+							>ESL Words Sorter</a
+						>
 					</li>
 				</ul>
 			</div>
@@ -49,16 +57,16 @@
 				</ul>
 			</div>
 			<div class="w-full md:w-1/4 text-center md:text-left ">
-				<h5 class="uppercase mb-6 font-bold">Contribute</h5>
+				<h5 class="uppercase mb-6 font-bold">About</h5>
 				<ul class="mb-4">
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
-							>Github</a
-						>
+						<a href="/blog" class="hover:underline text-gray-600 hover:text-orange-500">Blog</a>
 					</li>
 					<li class="mt-2">
-						<a href="/" class="hover:underline text-gray-600 hover:text-orange-500"
-							>Suggest</a
+						<a
+							href="https://github.com/lmanzanero/esl-games"
+							target="_blank"
+							class="hover:underline text-gray-600 hover:text-orange-500">Github</a
 						>
 					</li>
 					<li class="mt-2">
@@ -70,10 +78,10 @@
 		<div class="text-center text-sm text-indigo-400 font-semibold py-3">
 			Copyright © 2021 ESL Real-Time Games
 		</div>
-	</div>	 
+	</div>
 </footer>
 
 <style>
 	@tailwind base;
-	@tailwind components; 
+	@tailwind components;
 </style>
