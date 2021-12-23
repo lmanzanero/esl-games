@@ -19,6 +19,10 @@
 		newUser = '';
 	}
 
+	$: {
+		console.log(Users);
+	}
+
 	//finds if user exists
 	function userExists(username) {
 		return Users.some((user) => user.username == username);

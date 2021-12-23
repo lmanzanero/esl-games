@@ -85,11 +85,11 @@
 			const hole = randomHole(holes);
 			console.log((hole.children[0].textContent = randomWord($whackaMoleStore.names)));
 			hole.classList.add('up');
-			speech = '';
 			setTimeout(() => {
 				hole.classList.remove('up');
 				if (!timeUp) peep();
 				if (speech.includes(hole.children[0].textContent)) score++;
+				speech = '';
 			}, time);
 		}
 	});
@@ -134,7 +134,7 @@
 	<h1>Whack-a-mole! <span class="score">{score}</span></h1>
 	<div class="game">
 		<div class="hole up hole1">
-			<div class="mole" on:click={bonk}>Apple</div>
+			<div class="mole" on:click={bonk}>Carrots</div>
 		</div>
 		<div class="hole hole2">
 			<div class="mole" on:click={bonk}>Red</div>
