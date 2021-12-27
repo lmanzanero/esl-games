@@ -53,7 +53,10 @@
 			question.textContent = randomQuestion.question;
 			//set random answers to dom
 			answers.forEach((answer, index) => {
+				//add text inside button
 				answer.insertAdjacentText('beforeend', `${randomQuestion.answers[index].text}`);
+				//add attribute to html to see if answer is correct or wrong
+				answer.setAttribute('is-correct', `${randomQuestion.answers[index].correct}`);
 			});
 		}
 
