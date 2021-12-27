@@ -43,7 +43,7 @@
 	onMount(() => {
 		const question = document.querySelector('.question');
 		const answers = document.querySelectorAll('.answers .answer');
-		console.log(question);
+		console.log(answers);
 
 		function shufflteQuestions() {
 			//get random question
@@ -52,8 +52,14 @@
 			question.textContent = randomQuestion.question;
 			//set random answers to dom
 			answers.forEach((answer, index) => {
-				answer.textContent = randomQuestion.answers[index].text;
+				answer.insertAdjacentText('beforeend', `${randomQuestion.answers[index].text}`);
 			});
+		}
+
+		answers.forEach((answer) => answer.addEventListener('click', validateAnswer));
+
+		function validateAnswer(answer) {
+			console.log(answer);
 		}
 
 		shufflteQuestions();
@@ -278,31 +284,55 @@
 	</div>
 	<div class="answers flex flex-wrap overflow-hidden sm:-mx-px md:-mx-1 lg:-mx-4 xl:-mx-1">
 		<button
-			class="answer rounded shadow-sm text-center p-4 bg-blue-300 w-full overflow-hidden hover:bg-blue-500 my-2 lg:w-1/2"
+			class="answer flex justify-center rounded shadow-sm text-center p-4 bg-blue-300 w-full hover:bg-blue-500 my-2 lg:w-1/2"
 		>
 			<!-- Column Content -->
-			test
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6 text-green-800 mx-4"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+				/>
+			</svg>
 		</button>
 
 		<button
 			class="answer rounded shadow text-center p-4 bg-red-300 w-full overflow-hidden hover:bg-red-500 my-2 lg:w-1/2"
 		>
 			<!-- Column Content -->
-			test
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6 text-red-800"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+				/>
+			</svg>
 		</button>
 
 		<button
 			class="answer rounded shadow text-center p-4 bg-indigo-300 w-full overflow-hidden hover:bg-indigo-500 my-2 lg:w-1/2"
 		>
 			<!-- Column Content -->
-			test
 		</button>
 
 		<button
 			class="answer rounded shadow text-center p-4 bg-green-300 w-full overflow-hidden hover:bg-green-500 my-2 lg:w-1/2"
 		>
 			<!-- Colums Content -->
-			test
 		</button>
 	</div>
 </div>
