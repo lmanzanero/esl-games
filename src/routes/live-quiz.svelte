@@ -1,6 +1,7 @@
 <script>
-	import { onMount } from 'svelte';
+	import { afterUpdate, onMount } from 'svelte';
 	let score = 100;
+	let allScores = [50, 20, 30, 40];
 	const questions = [
 		{
 			question: 'What is 2 + 2?',
@@ -40,6 +41,11 @@
 		}
 	];
 
+	function updateScore(score) {
+		allScores.push(score);
+		allScores = allScores;
+	}
+
 	onMount(() => {
 		const question = document.querySelector('.question');
 		const answers = document.querySelectorAll('.answers .answer');
@@ -53,8 +59,6 @@
 			question.textContent = randomQuestion.question;
 			//set random answers to dom
 			answers.forEach((answer, index) => {
-				//add text inside button
-				console.log(answer.lastChild);
 				answer.lastChild.textContent = randomQuestion.answers[index].text;
 				//add attribute to html to see if answer is correct or wrong
 				answer.setAttribute('is-correct', `${randomQuestion.answers[index].correct}`);
@@ -80,6 +84,7 @@
 					'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
 				);
 				score++;
+				updateScore(50);
 				setTimeout(() => {
 					shuffleQuestions();
 				}, 500);
@@ -128,133 +133,16 @@
 					<p class="text-white px-1">{score}</p>
 				</span>
 			</div>
-			<div class="flex items-center justify-between overflow-x-auto">
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
+			<div class="scores flex items-center justify-between overflow-x-auto">
+				{#each allScores as scorer}
+					<div class="score w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
+						<div
+							class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
+						>
+							${scorer}
+						</div>
 					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
-				<div class="w-full mx-2 sm:order-2 sm:mt-0 sm:w-auto">
-					<div
-						class="flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
-					>
-						$100
-					</div>
-				</div>
+				{/each}
 			</div>
 		</div>
 	</div>
