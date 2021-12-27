@@ -46,7 +46,7 @@
 		const answerIcons = document.querySelectorAll('.answers .answer svg');
 		console.log(answers);
 
-		function shufflteQuestions() {
+		function shuffleQuestions() {
 			//get random question
 			const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 			//set random question to dom
@@ -78,7 +78,7 @@
 			// });
 		}
 
-		shufflteQuestions();
+		shuffleQuestions();
 	});
 </script>
 
