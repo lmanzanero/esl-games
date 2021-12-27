@@ -79,7 +79,9 @@
 					'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
 				);
 				score++;
-				shuffleQuestions();
+				setTimeout(() => {
+					shuffleQuestions();
+				}, 500);
 			} else {
 				score--;
 				answerIcons[answerIndex].classList.add('text-red-800');
