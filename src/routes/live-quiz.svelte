@@ -1,3 +1,65 @@
+<script>
+	import { onMount } from 'svelte';
+
+	const questions = [
+		{
+			question: 'What is 2 + 2?',
+			answers: [
+				{ text: '4', correct: true },
+				{ text: '22', correct: false },
+				{ text: '25', correct: false },
+				{ text: '12', correct: false }
+			]
+		},
+		{
+			question: 'What is your name?',
+			answers: [
+				{ text: 'My name is Dora.', correct: true },
+				{ text: 'What do you mean?', correct: false },
+				{ text: 'Because I like pizza.', correct: false },
+				{ text: 'Your name is Dora.', correct: false }
+			]
+		},
+		{
+			question: 'What did you do yesterday?',
+			answers: [
+				{ text: 'I eat a lot of pizza', correct: false },
+				{ text: 'I ate a lot of pizza', correct: true },
+				{ text: 'I will eat a lot of pizza.', correct: false },
+				{ text: 'I am eating a lot of pizza.', correct: false }
+			]
+		},
+		{
+			question: 'What will you do tomorrow?',
+			answers: [
+				{ text: 'I played video games.', correct: false },
+				{ text: 'I am playing videos games.', correct: false },
+				{ text: 'I play video games everyday.', correct: false },
+				{ text: 'I will play video games tomorrow', correct: true }
+			]
+		}
+	];
+
+	onMount(() => {
+		const question = document.querySelector('.question');
+		const answers = document.querySelectorAll('.answers .answer');
+		console.log(question);
+
+		function shufflteQuestions() {
+			//get random question
+			const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+			//set random question to dom
+			question.textContent = randomQuestion.question;
+			//set random answers to dom
+			answers.forEach((answer, index) => {
+				answer.textContent = randomQuestion.answers[index].text;
+			});
+		}
+
+		shufflteQuestions();
+	});
+</script>
+
 <svelte:head>
 	<!-- elements go here -->
 	<title>ESL Live Quiz</title>
@@ -161,7 +223,7 @@
 </div>
 <div class="container m-auto p-4">
 	<div class="flex flex-row">
-		<button class="bg-blue-500 text-white py-2 px-6 m-2 rounded-full flex">
+		<button class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="animate-bounce h-6 w-6"
@@ -176,7 +238,7 @@
 			</svg>
 			<span>stats</span>
 		</button>
-		<button class="bg-blue-500 text-white py-2 px-6 m-2 rounded-full flex">
+		<button class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="h-6 w-6"
@@ -193,7 +255,7 @@
 			</svg>
 			<span>Join</span>
 		</button>
-		<button class="bg-blue-500 text-white py-2 px-6 m-2 rounded-full flex">
+		<button class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="h-6 w-6"
@@ -212,32 +274,32 @@
 		</button>
 	</div>
 	<div class="flex justify-center p-4">
-		<h2 class="text-3xl text-gray">What is your name?</h2>
+		<h2 class="question text-3xl text-gray">What is your name?</h2>
 	</div>
-	<div class="flex flex-wrap overflow-hidden sm:-mx-px md:-mx-1 lg:-mx-4 xl:-mx-1">
+	<div class="answers flex flex-wrap overflow-hidden sm:-mx-px md:-mx-1 lg:-mx-4 xl:-mx-1">
 		<button
-			class="rounded shadow-sm text-center p-4 bg-blue-300 w-full overflow-hidden hover:bg-blue-500 my-2 lg:w-1/2"
+			class="answer rounded shadow-sm text-center p-4 bg-blue-300 w-full overflow-hidden hover:bg-blue-500 my-2 lg:w-1/2"
 		>
 			<!-- Column Content -->
 			test
 		</button>
 
 		<button
-			class="rounded shadow text-center p-4 bg-red-300 w-full overflow-hidden hover:bg-red-500 my-2 lg:w-1/2"
+			class="answer rounded shadow text-center p-4 bg-red-300 w-full overflow-hidden hover:bg-red-500 my-2 lg:w-1/2"
 		>
 			<!-- Column Content -->
 			test
 		</button>
 
 		<button
-			class="rounded shadow text-center p-4 bg-indigo-300 w-full overflow-hidden hover:bg-indigo-500 my-2 lg:w-1/2"
+			class="answer rounded shadow text-center p-4 bg-indigo-300 w-full overflow-hidden hover:bg-indigo-500 my-2 lg:w-1/2"
 		>
 			<!-- Column Content -->
 			test
 		</button>
 
 		<button
-			class="rounded shadow text-center p-4 bg-green-300 w-full overflow-hidden hover:bg-green-500 my-2 lg:w-1/2"
+			class="answer rounded shadow text-center p-4 bg-green-300 w-full overflow-hidden hover:bg-green-500 my-2 lg:w-1/2"
 		>
 			<!-- Colums Content -->
 			test
