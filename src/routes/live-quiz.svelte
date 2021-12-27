@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-
+	let score = 100;
 	const questions = [
 		{
 			question: 'What is 2 + 2?',
@@ -57,17 +57,25 @@
 				answer.insertAdjacentText('beforeend', `${randomQuestion.answers[index].text}`);
 				//add attribute to html to see if answer is correct or wrong
 				answer.setAttribute('is-correct', `${randomQuestion.answers[index].correct}`);
+				answer.setAttribute('index', `${index}`);
 			});
 		}
 
 		answers.forEach((answer) => answer.addEventListener('click', validateAnswer));
 
 		function validateAnswer(answer) {
-			console.log(answer.target.textContent);
+			//validate answer
+			if (answer.target.getAttribute('is-correct') === 'true') {
+				//toggle correct answer icon button
+				answerIcons[answer.target.getAttribute('index')].classList.remove('hidden');
+				score++;
+			} else {
+				score--;
+			}
 			//show answers
-			answerIcons.forEach((answer) => {
-				answer.classList.toggle('hidden');
-			});
+			// answerIcons.forEach((answer) => {
+			// 	answer.classList.toggle('hidden');
+			// });
 		}
 
 		shufflteQuestions();
@@ -101,7 +109,7 @@
 							d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 						/>
 					</svg>
-					<p class="text-white px-1">100</p>
+					<p class="text-white px-1">{score}</p>
 				</span>
 			</div>
 			<div class="flex items-center justify-between overflow-x-auto">
@@ -297,7 +305,7 @@
 			<!-- Column Content -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 text-green-800 mx-4"
+				class="h-6 w-6 text-green-800 mx-4 hidden"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
@@ -317,7 +325,7 @@
 			<!-- Column Content -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 text-red-800 mx-4"
+				class="h-6 w-6 text-red-800 mx-4 hidden"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
@@ -337,7 +345,7 @@
 			<!-- Column Content -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 text-red-800 mx-4"
+				class="h-6 w-6 text-red-800 mx-4 hidden"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
@@ -357,7 +365,7 @@
 			<!-- Colums Content -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 text-red-800 mx-4"
+				class="h-6 w-6 text-red-800 mx-4 hidden"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
