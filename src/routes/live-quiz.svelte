@@ -44,7 +44,7 @@
 		const question = document.querySelector('.question');
 		const answers = document.querySelectorAll('.answers .answer');
 		const answerIcons = document.querySelectorAll('.answers .answer svg');
-		console.log(answers);
+		const answerIconPaths = document.querySelectorAll('.answers .answer svg path');
 
 		function shuffleQuestions() {
 			//get random question
@@ -59,23 +59,36 @@
 				answer.setAttribute('is-correct', `${randomQuestion.answers[index].correct}`);
 				answer.setAttribute('index', `${index}`);
 			});
+			//show answers
+			answerIcons.forEach((answer) => {
+				answer.classList.add('hidden');
+			});
 		}
 
 		answers.forEach((answer) => answer.addEventListener('click', validateAnswer));
 
 		function validateAnswer(answer) {
+			const answerIndex = answer.target.getAttribute('index');
 			//validate answer
 			if (answer.target.getAttribute('is-correct') === 'true') {
 				//toggle correct answer icon button
-				answerIcons[answer.target.getAttribute('index')].classList.remove('hidden');
+				answerIcons[answerIndex].classList.add('text-green-800');
+				answerIcons[answerIndex].classList.remove('hidden');
+				answerIconPaths[answerIndex].setAttribute(
+					'd',
+					'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+				);
 				score++;
+				shuffleQuestions();
 			} else {
 				score--;
+				answerIcons[answerIndex].classList.add('text-red-800');
+				answerIcons[answerIndex].classList.remove('hidden');
+				answerIconPaths[answerIndex].setAttribute(
+					'd',
+					'M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z'
+				);
 			}
-			//show answers
-			// answerIcons.forEach((answer) => {
-			// 	answer.classList.toggle('hidden');
-			// });
 		}
 
 		shuffleQuestions();
@@ -305,7 +318,7 @@
 			<!-- Column Content -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 text-green-800 mx-4 hidden"
+				class="h-6 w-6 mx-4 hidden"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
