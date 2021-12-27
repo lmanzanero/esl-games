@@ -1,7 +1,7 @@
 <script>
 	import { afterUpdate, onMount } from 'svelte';
-	let score = 100;
-	let allScores = [50, 20, 30, 40];
+	let allScores = [20, 30];
+	$: score = allScores.reduce((t, n) => t + n, 0);
 	const questions = [
 		{
 			question: 'What is 2 + 2?',
@@ -83,13 +83,12 @@
 					'd',
 					'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
 				);
-				score++;
-				updateScore(50);
+				updateScore(+50);
 				setTimeout(() => {
 					shuffleQuestions();
 				}, 500);
 			} else {
-				score--;
+				updateScore(-50);
 				answerIcons[answerIndex].classList.add('text-red-800');
 				answerIcons[answerIndex].classList.remove('hidden');
 				answerIconPaths[answerIndex].setAttribute(
