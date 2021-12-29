@@ -34,6 +34,11 @@ function createStore() {
 
 	return {
 		subscribe,
+		updateWord: word => update(store => {
+			return Object.assign({}, store, {
+				word : word
+			})
+		}),
 		move: index => update(store => { 
 			const history = store.history.slice(0, store.stepNumber + 1);
 			const current = history[store.stepNumber];

@@ -4,9 +4,11 @@
 
 	let status;
 	let winner;
+	let word;
 	let started = false;
 	store.subscribe((store) => {
 		winner = calculateWinner(store.history[store.history.length - 1].board);
+		word = store.word;
 		if (winner) {
 			status = `Winner: ${winner}`;
 		} else {
@@ -48,7 +50,7 @@
 		<div>{status}</div>
 	</div>
 	<div class="game-words">
-		<p>{started ? 'Apple' : 'Say the words you see!'}</p>
+		<p>{started ? word : 'Say the words you see!'}</p>
 		<br />
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

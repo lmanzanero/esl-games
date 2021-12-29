@@ -8,7 +8,7 @@
 	$: value = current.board[index];
 
 	function handleBackground() {
-		console.log(word);
+		store.updateWord(word);
 	}
 </script>
 
