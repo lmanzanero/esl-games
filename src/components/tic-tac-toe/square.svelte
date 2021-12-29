@@ -3,11 +3,12 @@
 
 	export let index;
 	export let background;
+	export let word;
 	$: current = $store.history[$store.stepNumber];
 	$: value = current.board[index];
 
 	function handleBackground() {
-		console.log(background);
+		console.log(word);
 	}
 </script>
 

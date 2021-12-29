@@ -5,7 +5,8 @@ const defaultBoard = {
 		board: Array(9).fill('')
 	}],
 	xIsNext: true,
-	stepNumber: 0
+	stepNumber: 0,
+	word: ''
 }
 
 export function calculateWinner(squares) {

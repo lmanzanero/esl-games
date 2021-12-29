@@ -11,7 +11,7 @@
 	<Square
 		index="1"
 		word="Orange"
-		background=https://www.luluhypermarket.com/medias/1291292-01.jpg-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wxMjM5OTh8aW1hZ2UvanBlZ3xpbWFnZXMvaDU0L2g4MS85MTQ4Mjc4MTEyMjg2LmpwZ3w0ODI2ZjY1NzU5NGU3ZGJiYTExMTM4NzNkODZlYjRjYTBmNzNkMTdkYmQ0ZjFiMTk0YjNlMDk3YjRkZTUxNjVh"
+		background="https://www.luluhypermarket.com/medias/1291292-01.jpg-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wxMjM5OTh8aW1hZ2UvanBlZ3xpbWFnZXMvaDU0L2g4MS85MTQ4Mjc4MTEyMjg2LmpwZ3w0ODI2ZjY1NzU5NGU3ZGJiYTExMTM4NzNkODZlYjRjYTBmNzNkMTdkYmQ0ZjFiMTk0YjNlMDk3YjRkZTUxNjVh"
 	/>
 	<Square
 		index="2"
@@ -30,10 +30,10 @@
 		word="Kiwi"
 		background="https://upload.wikimedia.org/wikipedia/commons/d/d3/Kiwi_aka.jpg"
 	/>
-	<Square 
-		index="5" 
+	<Square
+		index="5"
 		word="Mango"
-	  background="https://www.svz.com/wp-content/uploads/2018/05/Mango.jpg"
+		background="https://www.svz.com/wp-content/uploads/2018/05/Mango.jpg"
 	/>
 </div>
 <div class="board-row">
