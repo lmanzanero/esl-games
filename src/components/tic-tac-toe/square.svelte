@@ -5,11 +5,16 @@
 	export let background;
 	$: current = $store.history[$store.stepNumber];
 	$: value = current.board[index];
+
+	function handleBackground() {
+		console.log(background);
+	}
 </script>
 
 <button
 	style="background-image: url({background}); background-position:{'center center'}; background-size:{'cover'};"
-	on:click={() => store.move(index)}>{value}</button
+	on:click={() => store.move(index)}
+	on:mouseover={handleBackground}>{value}</button
 >
 
 <style>
