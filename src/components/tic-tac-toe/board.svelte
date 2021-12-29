@@ -1,12 +1,8 @@
 <script>
 	import Square from './square.svelte';
-	import { store } from '../../stores/tic-tac-toe';
-	function clearWord() {
-		store.updateWord('');
-	}
 </script>
 
-<div class="board-row" on:mouseleave={clearWord}>
+<div class="board-row">
 	<Square
 		index="0"
 		word="Tomato"

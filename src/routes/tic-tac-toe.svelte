@@ -15,6 +15,10 @@
 			status = `Next player: ${store.xIsNext ? 'X' : 'O'}`;
 		}
 	});
+
+	function clearWord() {
+		store.updateWord('');
+	}
 </script>
 
 <svelte:head>
@@ -67,7 +71,7 @@
 			/>
 		</svg>
 	</div>
-	<div class="game-board">
+	<div class="game-board" on:mouseleave={clearWord}>
 		<Board />
 	</div>
 	<ol>
