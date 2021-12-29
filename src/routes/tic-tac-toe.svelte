@@ -1,4 +1,5 @@
 <script>
+	import Microphone from '../components/microphone/Microphone.svelte';
 	import Board from '../components/tic-tac-toe/board.svelte';
 	import { calculateWinner, store } from '../stores/tic-tac-toe';
 
@@ -17,7 +18,8 @@
 	});
 
 	function clearWord() {
-		store.updateWord('');
+		store.updateWord('Hover and say the word!');
+		started = false;
 	}
 </script>
 
@@ -54,9 +56,9 @@
 		<div>{status}</div>
 	</div>
 	<div class="game-words">
-		<p>{started ? word : 'Say the words you see!'}</p>
+		<p>{started ? word : 'Hover and say the word!'}</p>
 		<br />
-		<svg
+		<!-- <svg
 			xmlns="http://www.w3.org/2000/svg"
 			class={`h-7 w-7 m-auto p-1 rounded bg-green-500 ${started ? 'animate-pulse' : ''}`}
 			fill="none"
@@ -69,9 +71,10 @@
 				stroke-width="2"
 				d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
 			/>
-		</svg>
+		</svg> -->
+		<Microphone buttonText="Listen" isListening={started} />
 	</div>
-	<div class="game-board" on:mouseleave={clearWord}>
+	<div class="game-board" on:mouseenter={() => (started = true)} on:mouseleave={clearWord}>
 		<Board />
 	</div>
 	<ol>

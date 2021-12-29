@@ -2,7 +2,8 @@
 	import { onMount } from 'svelte';
 
 	export let speech = '';
-	let isListening = false;
+	export let buttonText = 'Start Game';
+	export let isListening = false;
 	onMount(() => {
 		let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 		const recognition = new SpeechRecognition();
@@ -24,10 +25,6 @@
 			}
 		});
 	});
-
-	// $: {
-	// 	console.log(isListening);
-	// }
 </script>
 
 <div class="microphone-container">
@@ -54,7 +51,21 @@
 				d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
 			/></svg
 		>
-		{!isListening ? 'Start Game' : 'Listening ...'}
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			class={`h-7 w-7 mx-2 p-1 rounded bg-purple-800 ${isListening ? 'hidden' : ''}`}
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke="currentColor"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
+			/>
+		</svg>
+		{!isListening ? buttonText : 'Listening ...'}
 	</button>
 	<p class="text-center p-4 m-auto text-white text-base font-semibold">
 		You Said: <span class="text-green-700">{speech}</span>
