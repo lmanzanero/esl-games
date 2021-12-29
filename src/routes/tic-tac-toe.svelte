@@ -57,7 +57,6 @@
 	</div>
 	<div class="game-words">
 		<p>{started ? word : 'Hover and say the word!'}</p>
-		<br />
 		<!-- Todo:  - Add Mircophone store or value to evalute words
 						  	- disable button and only enable if said word matches
 		
@@ -67,7 +66,7 @@
 	<div class="game-board" on:mouseenter={() => (started = true)} on:mouseleave={clearWord}>
 		<Board />
 	</div>
-	<ol>
+	<!-- <ol>
 		{#each $store.history as step, move}
 			<li on:click={() => store.jumpTo(move)}>
 				{#if move}
@@ -77,7 +76,7 @@
 				{/if}
 			</li>
 		{/each}
-	</ol>
+	</ol> -->
 </div>
 
 <style>
@@ -94,30 +93,29 @@
 	}
 
 	.game-info {
-		font-size: 3em;
+		font-size: 2.5em;
 		padding: 0.4em;
 		font-family: cursive;
 		font-weight: bolder;
-		box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-		background: rgb(34, 110, 116);
+		background: rgb(100, 62, 190);
 		color: rgb(176, 179, 19);
 		border-radius: 0.1em;
+		text-align: center;
 	}
 
 	.game-board {
 		margin: auto;
-		box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-	}
-	.game-info {
-		margin: auto;
 	}
 
 	.game-words {
-		margin: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
 		font-size: 3em;
 		color: #404040;
+		margin: auto;
 	}
-	ol {
+	/* ol {
 		margin: auto;
 		display: flex;
 		flex-direction: row;
@@ -145,5 +143,5 @@
 		border: none;
 		background: #5e5d5d;
 		color: antiquewhite;
-	}
+	} */
 </style>
