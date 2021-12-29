@@ -33,7 +33,7 @@ function createStore() {
 
 	return {
 		subscribe,
-		move: index => update(store => {
+		move: index => update(store => { 
 			const history = store.history.slice(0, store.stepNumber + 1);
 			const current = history[store.stepNumber];
 

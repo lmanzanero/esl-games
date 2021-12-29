@@ -128,7 +128,6 @@
 	ol li button {
 		border: none;
 		background: #404040;
-		color: #ffffff !important;
 		font-weight: 100;
 		padding: 20px;
 		margin: 0.4em;
