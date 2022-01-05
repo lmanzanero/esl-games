@@ -2,6 +2,13 @@
 	import { scoreKeeperStore } from '../stores/score-keeper';
 	import UserCard from '../components/score-keeper/UserCard.svelte';
 	import ScoreHeader from '../components/score-keeper/ScoreHeader.svelte';
+	import { onMount } from 'svelte';
+	import { supabase } from '$lib/dbConfig';
+	onMount(async () => {
+		let { data: scorekeeper, error } = await supabase.from('scorekeeper').select('*');
+		console.log(scorekeeper);
+		scoreKeeperStore.set({ users: scorekeeper });
+	});
 </script>
 
 <svelte:head>
