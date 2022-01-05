@@ -5,15 +5,21 @@
 
 	let email;
 	let password;
+	let loading = false;
 
 	const signUpUser = async () => {
+		loading = true;
 		let { user, error } = await supabase.auth.signUp({
 			email: email,
 			password: password
 		});
-		console.log(user, error);
 		if (error) {
 			alert(error.message);
+			return;
+		}
+		if (user) {
+			loading = false;
+			goto('/login');
 		}
 	};
 </script>
@@ -60,7 +66,7 @@
 			</div>
 			<button
 				class="bg-green-500 hover:bg-green-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded"
-				>Sign up</button
+				>{!loading ? 'Sign up' : 'Loading...'}</button
 			>
 		</form>
 		<a class="text-blue-700 text-center text-sm" href="/login">Forgot password?</a>
