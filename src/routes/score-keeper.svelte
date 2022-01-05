@@ -12,10 +12,6 @@
 			console.log($scoreKeeperStore.users);
 		}
 	});
-
-	function signOut() {
-		supabase.auth.signOut();
-	}
 </script>
 
 <svelte:head>
@@ -46,7 +42,6 @@
 	<meta property="twitter:image" content="https://esl-games.vercel.app/score-keeper.png" />
 </svelte:head>
 <section class="h-screen">
-	<button on:click={signOut}>Sign Out</button>
 	<ScoreHeader />
 	<div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 pt-32">
 		{#each $scoreKeeperStore.users as user}
