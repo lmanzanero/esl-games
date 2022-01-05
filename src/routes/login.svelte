@@ -1,6 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { supabase } from '$lib/dbConfig';
+	import { session } from '$app/stores';
 
 	let email;
 	let password;
@@ -8,7 +9,11 @@
 
 	const loginUser = async () => {
 		loading = true;
-		let { user, session, error } = await supabase.auth.signIn({
+		let {
+			user,
+			session: supaSession,
+			error
+		} = await supabase.auth.signIn({
 			email: email,
 			password: password
 		});
@@ -17,7 +22,11 @@
 			return;
 		}
 		loading = false;
-		if (user || session) goto('/');
+		if (user || session) {
+			$session = supaSession;
+			console.log($session);
+			goto('/');
+		}
 	};
 </script>
 

@@ -1,15 +1,28 @@
 <script>
+	import { supabase } from '$lib/dbConfig';
+
 	import { scoreKeeperStore } from '../../stores/score-keeper';
 
 	let newUser = '';
 	let Users;
 	scoreKeeperStore.subscribe((store) => (Users = store.users));
-	function addUser(e) {
+	async function addUser(e) {
 		e.preventDefault();
 		//ensure new user is not empty
 		if (newUser.length < 1) return alert('Username must not be empty');
 		//check user already exists
 		if (userExists(newUser)) return alert('User already exists!');
+		//add user to authenticated users
+		if (supabase.auth.user()) {
+			try {
+				const { data, error } = await supabase
+					.from('scorekeeper')
+					.insert({ username: newUser, score: 0, user_id: supabase.auth.user().id });
+				console.log(data, error);
+			} catch (error) {
+				console.log(error);
+			}
+		}
 		//add user
 		Users.push({
 			username: newUser,

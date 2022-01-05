@@ -5,9 +5,11 @@
 	import { onMount } from 'svelte';
 	import { supabase } from '$lib/dbConfig';
 	onMount(async () => {
-		let { data: scorekeeper, error } = await supabase.from('scorekeeper').select('*');
-		console.log(scorekeeper);
-		scoreKeeperStore.set({ users: scorekeeper });
+		console.log(supabase.auth.session());
+		if (supabase.auth.session().user) {
+			let { data: scorekeeper, error } = await supabase.from('scorekeeper').select('*');
+			scoreKeeperStore.set({ users: scorekeeper });
+		}
 	});
 </script>
 
