@@ -9,6 +9,7 @@
 		if (supabase.auth.session().user) {
 			let { data: scorekeeper, error } = await supabase.from('scorekeeper').select('*');
 			scoreKeeperStore.set({ users: scorekeeper });
+			console.log($scoreKeeperStore.users);
 		}
 	});
 </script>

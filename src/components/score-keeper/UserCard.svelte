@@ -1,4 +1,6 @@
 <script>
+	import { supabase } from '$lib/dbConfig';
+
 	import { scoreKeeperStore } from '../../stores/score-keeper';
 
 	export let userData;
@@ -16,8 +18,30 @@
 		scoreKeeperStore.update((store) => Object.assign({}, store, { users: updatedScores }));
 	}
 
-	function removeUser() {
-		console.log('Deleting User from store');
+	async function removeUser() {
+		try {
+			// remove from db only if authenticated
+			if (supabase.auth.session().user) {
+				//remove user from db
+				const { data, error } = await supabase
+					.from('scorekeeper')
+					.delete()
+					.match({ id: userData.id });
+				console.log(data, error);
+				//remove user from ui
+				const updatedScores = Users.filter((user) => user.id != userData.id);
+				//return new score object with updatedScores
+				scoreKeeperStore.update((store) => Object.assign({}, store, { users: updatedScores }));
+				// delete from ui state
+			} else {
+				//remove user from ui
+				const updatedScores = Users.filter((user) => user.id != userData.id);
+				//return new score object with updatedScores
+				scoreKeeperStore.update((store) => Object.assign({}, store, { users: updatedScores }));
+			}
+		} catch (error) {
+			console.log(error);
+		}
 	}
 </script>
 
