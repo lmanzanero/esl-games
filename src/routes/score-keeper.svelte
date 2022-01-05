@@ -6,7 +6,7 @@
 	import { supabase } from '$lib/dbConfig';
 	onMount(async () => {
 		console.log(supabase.auth.session());
-		if (supabase.auth.session().user) {
+		if (supabase.auth.session()) {
 			let { data: scorekeeper, error } = await supabase.from('scorekeeper').select('*');
 			scoreKeeperStore.set({ users: scorekeeper });
 			console.log($scoreKeeperStore.users);
