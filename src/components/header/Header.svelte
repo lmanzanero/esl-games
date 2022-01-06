@@ -2,8 +2,14 @@
 	import { supabase } from '$lib/dbConfig';
 
 	let isMenuHidden = false;
+	let showDropDown = false;
 	function toggleMenu() {
 		return (isMenuHidden = !isMenuHidden);
+	}
+
+	function toggleDropDown() {
+		console.log('Toggle:  ', showDropDown);
+		return (showDropDown = !showDropDown);
 	}
 </script>
 
@@ -84,8 +90,9 @@
 			<div class="ml-3 relative">
 				<div>
 					<button
+						on:click={toggleDropDown}
 						type="button"
-						class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+						class="bg-gray-800 border-2 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
 						id="user-menu-button"
 						aria-expanded="false"
 						aria-haspopup="true"
@@ -110,7 +117,9 @@
 									To: "transform opacity-0 scale-95"
 							-->
 				<div
-					class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+					class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none {!showDropDown
+						? 'hidden'
+						: ''}"
 					role="menu"
 					aria-orientation="vertical"
 					aria-labelledby="user-menu-button"
@@ -122,10 +131,10 @@
 						class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
 						role="menuitem"
 						tabindex="-1"
-						id="user-menu-item-0">Your Profile</a
+						id="user-menu-item-0">Dashboard</a
 					>
 					<a
-						href="#"
+						href="dashboard"
 						class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
 						role="menuitem"
 						tabindex="-1"
