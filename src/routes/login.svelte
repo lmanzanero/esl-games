@@ -25,7 +25,7 @@
 		if (user || session) {
 			$session = supaSession;
 			console.log($session);
-			goto('/');
+			goto('/dashboard');
 		}
 	};
 </script>
