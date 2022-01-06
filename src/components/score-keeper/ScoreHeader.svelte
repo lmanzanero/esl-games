@@ -18,7 +18,6 @@
 				const { data, error } = await supabase
 					.from('scorekeeper')
 					.insert({ username: newUser, score: 0, user_id: supabase.auth.user().id });
-				console.log(data, error);
 			} catch (error) {
 				console.log(error);
 			}

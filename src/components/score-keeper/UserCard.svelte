@@ -22,7 +22,6 @@
 		try {
 			// remove from db only if authenticated
 			if (supabase.auth.session()) {
-				console.log('No');
 				//remove user from db
 				const { data, error } = await supabase
 					.from('scorekeeper')
@@ -35,7 +34,6 @@
 				scoreKeeperStore.update((store) => Object.assign({}, store, { users: updatedScores }));
 				// delete from ui state
 			} else {
-				console.log('yes');
 				//remove user from ui based on name, since no id's are being saved
 				const updatedScores = Users.filter((user) => user.username != userData.username);
 				//return new score object with updatedScores
