@@ -24,7 +24,6 @@
 		loading = false;
 		if (user || session) {
 			$session = supaSession;
-			console.log($session);
 			goto('/dashboard');
 		}
 	};

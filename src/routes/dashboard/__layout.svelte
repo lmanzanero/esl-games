@@ -9,3 +9,4 @@
 </script>
 
 <Header />
+<slot />
