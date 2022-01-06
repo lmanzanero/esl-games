@@ -1,4 +1,6 @@
 <script>
+	import { goto } from '$app/navigation';
+
 	import { supabase } from '$lib/dbConfig';
 
 	let isMenuHidden = false;
@@ -10,6 +12,13 @@
 	function toggleDropDown() {
 		console.log('Toggle:  ', showDropDown);
 		return (showDropDown = !showDropDown);
+	}
+
+	async function signOut() {
+		try {
+			const { error } = await supabase.auth.signOut();
+			if (!error) goto('/');
+		} catch (error) {}
 	}
 </script>
 
@@ -141,7 +150,7 @@
 						id="user-menu-item-1">Settings</a
 					>
 					<button
-						on:click={async () => await supabase.auth.signOut()}
+						on:click={signOut}
 						class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
 						role="menuitem"
 						tabindex="-1"
