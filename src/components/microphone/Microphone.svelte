@@ -1,12 +1,14 @@
 <script>
-	import { onMount } from 'svelte';
+	import { store } from '../../stores/tic-tac-toe';
 
-	export let speech = '';
+	import { onMount } from 'svelte';
+	import { useMicrophone } from '../../stores/useMicrophone';
 	export let buttonText = 'Start Game';
-	export let isListening = false;
+	export let isEvaluating = false;
+	let isListening = false;
 	onMount(() => {
 		let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-		const recognition = new SpeechRecognition();
+		var recognition = new SpeechRecognition();
 		recognition.interimResults = true;
 		recognition.continuous = true;
 		recognition.addEventListener('result', (e) => {
@@ -14,24 +16,63 @@
 				.map((result) => result[0])
 				.map((result) => result.transcript)
 				.join('');
-			speech = transcript;
+			// use last word from array
+			useMicrophone.setSpeech(transcript.split(' ').at(-1));
 		});
 
+		recognition.onstart = function () {
+			console.log('Start');
+			isListening = true;
+		};
+
+		recognition.onend = function () {
+			console.log('End');
+			isListening = false;
+		};
+
 		document.querySelector('.recordbtn').addEventListener('click', function () {
-			if (!isListening) {
+			console.log('Is Listening: ', isListening);
+			useMicrophone.reset();
+			recognition.start();
+			if (isListening) {
 				recognition.stop();
-			} else {
-				recognition.start();
 			}
 		});
 	});
+
+	function evalWords(recognitionSpeeh, word) {
+		if (recognitionSpeeh.toLowerCase().includes(word.toLowerCase())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	$: {
+		if (isListening) {
+			// evalutate answer
+			console.log($useMicrophone.length);
+			if ($useMicrophone.length >= 15 && $useMicrophone.length >= 0) {
+				useMicrophone.reset();
+			}
+			console.log(
+				'Evalute ',
+				$useMicrophone,
+				'with: ',
+				$store.word,
+				evalWords($useMicrophone, $store.word)
+			);
+		}
+	}
 </script>
 
 <div class="microphone-container">
 	<button
 		type="button"
-		class="flex recordbtn justify-center justify-center m-auto px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-purple-600 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150"
-		on:click={() => (isListening = !isListening)}
+		class="flex recordbtn justify-center justify-center m-auto px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-purple-600 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 {isListening
+			? 'cursor-not-allowed'
+			: ''}"
+		disabled={isListening}
 	>
 		<svg
 			class={`animate-spin -ml-1 mr-3 h-5 w-5 text-white ${!isListening ? 'hidden' : ''}`}
@@ -68,6 +109,6 @@
 		{!isListening ? buttonText : 'Listening ...'}
 	</button>
 	<p class="text-center p-4 m-auto text-white text-base font-semibold">
-		You Said: <span class="text-green-700">{speech}</span>
+		You Said: <span class="text-green-700">{$useMicrophone}</span>
 	</p>
 </div>

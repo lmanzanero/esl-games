@@ -1,4 +1,6 @@
 <script>
+	import { useMicrophone } from '../../stores/useMicrophone';
+
 	import { store } from '../../stores/tic-tac-toe';
 
 	export let index;
@@ -9,6 +11,8 @@
 
 	function handleBackground() {
 		store.updateWord(word);
+		console.log('Hello');
+		useMicrophone.reset();
 	}
 </script>
 
