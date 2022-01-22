@@ -51,10 +51,6 @@
 	$: {
 		if (isListening) {
 			// evalutate answer
-			console.log($useMicrophone.length);
-			if ($useMicrophone.length >= 15 && $useMicrophone.length >= 0) {
-				useMicrophone.reset();
-			}
 			console.log(
 				'Evalute ',
 				$useMicrophone,
