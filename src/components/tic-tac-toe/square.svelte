@@ -10,7 +10,7 @@
 	$: value = current.board[index];
 
 	function handleBackground() {
-		console.log('Hello', word);
+		console.log('Hello', word, index, value);
 		store.updateWord(word);
 		useMicrophone.reset();
 	}
