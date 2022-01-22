@@ -61,7 +61,7 @@
 						  	- disable button and only enable if said word matches
 		
 		-->
-		<Microphone buttonText="Listen" isListening={started} />
+		<Microphone buttonText="Listen" />
 	</div>
 	<div class="game-board" on:mouseenter={() => (started = true)} on:mouseleave={clearWord}>
 		<Board />
