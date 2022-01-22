@@ -10,8 +10,8 @@
 	$: value = current.board[index];
 
 	function handleBackground() {
+		console.log('Hello', word);
 		store.updateWord(word);
-		console.log('Hello');
 		useMicrophone.reset();
 	}
 </script>
@@ -19,7 +19,8 @@
 <button
 	style="background-image: url({background}); background-position:{'center center'}; background-size:{'cover'};"
 	on:click={() => store.move(index)}
-	on:mouseover={handleBackground}>{value}</button
+	on:mouseover={handleBackground}
+	on:focus>{value}</button
 >
 
 <style>
