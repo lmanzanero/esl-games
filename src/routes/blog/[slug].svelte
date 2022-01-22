@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ page, fetch }) {
-		console.log(page.path);
+		console.log('Path: ', page.path);
 		const post = await fetch(`${page?.path}.json`).then((res) => res.json());
 		const pagePath = page?.path;
 		return {
