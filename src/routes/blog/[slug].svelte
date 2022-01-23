@@ -2,7 +2,7 @@
 	export async function load({ page, url, fetch }) {
 		console.log('Url: ', url);
 		const post = await fetch(`${page.path || url.pathname}.json`).then((res) => res.json());
-		const pagePath = page.path || url.pathname;
+		const pagePath = url.pathname;
 		return {
 			props: {
 				post,
