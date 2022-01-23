@@ -1,8 +1,8 @@
 <script context="module">
-	export async function load({ page, fetch }) {
-		console.log('Path: ', page.path);
-		const post = await fetch(`${page?.path}.json`).then((res) => res.json());
-		const pagePath = page?.path;
+	export async function load({ page, url, params, fetch }) {
+		console.log('Url: ', url);
+		const post = await fetch(`${page.path}.json`).then((res) => res.json());
+		const pagePath = page.path;
 		return {
 			props: {
 				post,
@@ -18,6 +18,8 @@
 
 	export let post;
 	export let pagePath;
+	console.log('Post Data: ', post);
+	console.log('Page Path: ', pagePath);
 </script>
 
 <svelte:head>

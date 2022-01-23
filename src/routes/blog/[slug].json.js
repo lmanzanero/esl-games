@@ -5,6 +5,7 @@ export async function get({ params }) {
   const allPosts = import.meta.glob('../../blog/*.{md,svx}');  
   let match;
 	for (const [path, resolver] of Object.entries(allPosts)) {
+		console.log("JSON Path: ", path)
 		if (path.includes(params.slug)) {
 			match = [path, resolver];
 			break;
