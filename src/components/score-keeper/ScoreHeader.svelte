@@ -57,6 +57,11 @@
 				console.log(error);
 				isSaving = false;
 			}
+		} else {
+			//mock async saving to db
+			setTimeout(() => {
+				isSaving = false;
+			}, 1000);
 		}
 	}
 </script>

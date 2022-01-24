@@ -27,7 +27,7 @@
 					.from('scorekeeper')
 					.delete()
 					.match({ id: userData.id });
-				console.log(data, error);
+				console.log('Data: ', data, error);
 				//remove user from ui
 				const updatedScores = Users.filter((user) => user.id != userData.id);
 				//return new score object with updatedScores
