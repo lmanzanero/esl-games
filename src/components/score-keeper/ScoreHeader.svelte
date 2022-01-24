@@ -6,6 +6,7 @@
 	let newUser = '';
 	let Users;
 	let isSaving = false;
+	let isError = false;
 	scoreKeeperStore.subscribe((store) => (Users = store.users));
 	async function addUser(e) {
 		e.preventDefault();
@@ -41,11 +42,22 @@
 		return Users.some((user) => user.username == username);
 	}
 
-	function saveData() {
+	async function saveData() {
 		isSaving = true;
-		setTimeout(() => {
-			isSaving = false;
-		}, 2000);
+		if (supabase.auth.user()) {
+			try {
+				const { data, error } = await supabase.from('scorekeeper').upsert(Users);
+				if (data) {
+					isSaving = false;
+				}
+				if (error) {
+					isError = true;
+				}
+			} catch (error) {
+				console.log(error);
+				isSaving = false;
+			}
+		}
 	}
 </script>
 
