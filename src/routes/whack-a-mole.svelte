@@ -34,7 +34,7 @@
 				.map((result) => result[0])
 				.map((result) => result.transcript)
 				.join('');
-			speech = transcript;
+			speech = transcript.split(' ').at(-1);
 		});
 		function peep() {
 			const hole = randomHole(holes);
