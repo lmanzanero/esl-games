@@ -1,7 +1,7 @@
 <script context="module">
 	export async function load({ page, url, fetch }) {
 		console.log('Url: ', url);
-		const post = await fetch(`${page.path || url.pathname}.json`).then((res) => res.json());
+		const post = await fetch(`${url.pathname}.json`).then((res) => res.json());
 		const pagePath = url.pathname;
 		return {
 			props: {
