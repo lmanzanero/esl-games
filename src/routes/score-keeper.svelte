@@ -5,11 +5,15 @@
 	import { onMount } from 'svelte';
 	import { supabase } from '$lib/dbConfig';
 	onMount(async () => {
+		await getUserScores();
+	});
+
+	async function getUserScores() {
 		if (supabase.auth.session()) {
 			let { data: scorekeeper, error } = await supabase.from('scorekeeper').select('*');
 			scoreKeeperStore.set({ users: scorekeeper });
 		}
-	});
+	}
 </script>
 
 <svelte:head>
@@ -42,9 +46,13 @@
 <section class="h-screen">
 	<ScoreHeader />
 	<div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 pt-32">
-		{#each $scoreKeeperStore.users as user}
-			<UserCard userData={user} />
-		{/each}
+		{#await getUserScores()}
+			<h1>Waiting...</h1>
+		{:then}
+			{#each $scoreKeeperStore.users as user}
+				<UserCard userData={user} />
+			{/each}
+		{/await}
 	</div>
 </section>
 
