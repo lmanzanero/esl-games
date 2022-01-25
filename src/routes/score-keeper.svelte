@@ -4,9 +4,6 @@
 	import ScoreHeader from '../components/score-keeper/ScoreHeader.svelte';
 	import { onMount } from 'svelte';
 	import { supabase } from '$lib/dbConfig';
-	onMount(async () => {
-		await getUserScores();
-	});
 
 	async function getUserScores() {
 		if (supabase.auth.session()) {
