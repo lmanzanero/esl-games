@@ -24,6 +24,8 @@
 </script>
 
 <script>
+	import Post from '../../components/blog/post.svelte';
+
 	export let filteredPosts;
 	export let tag;
 </script>
@@ -57,9 +59,27 @@
 </svelte:head>
 
 <h1>{tag}</h1>
+<div class="posts">
+	{#each filteredPosts as { path, metadata }}
+		<Post data={metadata} {path} />
+		<!-- <li>
+	<a href={`${path.slice(5).replace('.md', '').replace('.svx', '')}`}>{title}</a>
+</li> -->
+	{/each}
+</div>
 
-{#each filteredPosts as { path, metadata: { title } }}
-	<li>
-		<a href={`${path.slice(5).replace('.md', '').replace('.svx', '')}`}>{title}</a>
-	</li>
-{/each}
+<style>
+	.posts {
+		position: relative;
+		text-align: center;
+		margin: 1em;
+	}
+
+	@media only screen and (max-width: 600px) {
+		.posts {
+			width: 100vw;
+			margin: 0;
+			padding: 0;
+		}
+	}
+</style>
