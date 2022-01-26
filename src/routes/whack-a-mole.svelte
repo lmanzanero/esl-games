@@ -54,7 +54,6 @@
 			setTimeout(() => {
 				timeUp = true;
 				isListening = false;
-				speech = '';
 				recognition.stop();
 			}, 10000);
 		}
@@ -83,13 +82,12 @@
 		function peep() {
 			const time = randomTime(200, 2000);
 			const hole = randomHole(holes);
-			console.log((hole.children[0].textContent = randomWord($whackaMoleStore.names)));
+			hole.children[0].textContent = randomWord($whackaMoleStore.names);
 			hole.classList.add('up');
 			setTimeout(() => {
 				hole.classList.remove('up');
 				if (!timeUp) peep();
-				if (speech.includes(hole.children[0].textContent)) score++;
-				speech = '';
+				if (speech.toLowerCase().includes(hole.children[0].textContent.toLowerCase())) score++;
 			}, time);
 		}
 	});

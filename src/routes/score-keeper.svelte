@@ -43,7 +43,9 @@
 	<ScoreHeader />
 	<div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 pt-32">
 		{#await getUserScores()}
-			<h1>Waiting...</h1>
+			<p />
+			<p class="animate-pulse m-auto">loading...</p>
+			<p />
 		{:then}
 			{#each $scoreKeeperStore.users as user}
 				<UserCard userData={user} />
