@@ -1,6 +1,5 @@
 <script context="module">
 	export async function load({ url, fetch }) {
-		console.log('Url: ', url);
 		const post = await fetch(`${url.pathname}.json`).then((res) => res.json());
 		const pagePath = url.pathname;
 		return {
@@ -18,8 +17,6 @@
 
 	export let post;
 	export let pagePath;
-	console.log('Post Data: ', post);
-	console.log('Page Path: ', pagePath);
 </script>
 
 <svelte:head>
