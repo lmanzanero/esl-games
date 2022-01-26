@@ -1,5 +1,5 @@
 <script context="module">
-	export async function load({ page, url, fetch }) {
+	export async function load({ url, fetch }) {
 		console.log('Url: ', url);
 		const post = await fetch(`${url.pathname}.json`).then((res) => res.json());
 		const pagePath = url.pathname;
