@@ -93,7 +93,7 @@
 	</div>
 {/if}
 <div
-	class="bg-gradient-to-r from-purple-500 to-blue-600 fixed w-full overflow-hidden z-10 h-32 m-auto shadow"
+	class="bg-gradient-to-r from-purple-500 to-blue-600 fixed w-full overflow-hidden z-10 h-32 p-2 m-auto shadow"
 >
 	<h1 class="text-lg font-extrabold text-3xl text-gray-200 text-center mt-3 mb-3">Score Keeper</h1>
 	<div class="flex justify-center">
@@ -112,7 +112,7 @@
 			</svg>
 			<input
 				bind:value={newUser}
-				class="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10"
+				class="w-full focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10"
 				type="text"
 				aria-label="Add User"
 				placeholder="Add User"

@@ -89,7 +89,7 @@
 	</label>
 	<div class="inline-flex">
 		<input
-			class="flex-shrink shadow p-2 appearance-none border rounded mx-1 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+			class="w-full shadow p-2  border rounded mx-1 text-grey-darker focus:outline-none focus:shadow-outline"
 			id="score"
 			type="text"
 			placeholder={userData.score}
