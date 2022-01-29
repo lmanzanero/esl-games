@@ -93,9 +93,9 @@
 	</div>
 {/if}
 <div
-	class="bg-gradient-to-r from-green-400 to-blue-500 fixed w-full overflow-hidden z-10 h-32 m-auto shadow"
+	class="bg-gradient-to-r from-purple-500 to-blue-600 fixed w-full overflow-hidden z-10 h-32 m-auto shadow"
 >
-	<h1 class="text-lg leading-6 font-medium text-black text-center mt-3 mb-3">Score Keeper</h1>
+	<h1 class="text-lg font-extrabold text-3xl text-gray-200 text-center mt-3 mb-3">Score Keeper</h1>
 	<div class="flex justify-center">
 		<form on:submit={addUser} class="relative">
 			<svg
