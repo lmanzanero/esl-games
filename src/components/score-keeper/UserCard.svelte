@@ -7,10 +7,19 @@
 	let Users;
 	scoreKeeperStore.subscribe((data) => (Users = data.users));
 	function updateScore(e) {
+		if (isNaN(e.target.value)) {
+			alert('Value must be number');
+			return false;
+		}
 		//find all scores and update based on username
 		const updatedScores = Users.map((user) => {
 			if (user.username == userData.username) {
-				user.score += Number(e.target.value);
+				console.log(e.target.value);
+				if (e.target.value.includes('+') || e.target.value.includes('-')) {
+					user.score += Number(e.target.value);
+				} else {
+					user.score = Number(e.target.value);
+				}
 			}
 			return user;
 		});
@@ -45,14 +54,13 @@
 	}
 </script>
 
-<div class="bg-white relative shadow-md border rounded px-8 pt-5 pb-7 m-2">
+<div class="bg-blue-500 relative shadow rounded px-4 pt-2 pb-3 m-2">
 	<button
 		on:click={removeUser}
 		type="button"
-		class="bg-red-200 absolute top-0 right-0 rounded-md p-1 inline-flex items-center justify-center text-gray-500 hover:text-gray-600 hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+		class="bg-red-300 absolute top-0 right-0 rounded text-gray-500 hover:text-gray-600 hover:bg-red-400"
 	>
 		<span class="sr-only">Close menu</span>
-		<!-- Heroicon name: outline/x -->
 		<svg
 			class="h-5 w-5"
 			xmlns="http://www.w3.org/2000/svg"
@@ -69,10 +77,48 @@
 			/>
 		</svg>
 	</button>
-	<label class="block text-grey-darker text-sm font-bold mb-2" for="username">
+	<label class="block text-grey-darker text-sm font-bold mb-2 pl-1" for="username">
 		{userData.username}
 	</label>
-	<div>
+	<div class="inline-flex">
+		<input
+			class="shadow p-2 appearance-none border rounded mx-1 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+			id="score"
+			type="text"
+			placeholder={userData.score}
+			value={userData.score}
+			on:keyup={updateScore}
+		/>
+		<button
+			on:click={updateScore}
+			class="bg-gray-300 shadow hover:bg-gray-400 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+			value="-1"
+		>
+			-1
+		</button>
+		<button
+			on:click={updateScore}
+			class="bg-gray-300 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
+			value="+5"
+		>
+			+5
+		</button>
+		<button
+			on:click={updateScore}
+			class="bg-gray-300 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
+			value="+10"
+		>
+			+10
+		</button>
+		<button
+			on:click={updateScore}
+			class="bg-gray-300 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+			value="+15"
+		>
+			+15
+		</button>
+	</div>
+	<!-- <div>
 		<input
 			class="w-16 shadow appearance-none border rounded py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
 			id="score"
@@ -111,5 +157,5 @@
 		>
 			+50
 		</button>
-	</div>
+	</div> -->
 </div>
