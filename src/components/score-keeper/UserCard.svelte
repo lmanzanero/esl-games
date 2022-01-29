@@ -89,7 +89,7 @@
 	</label>
 	<div class="inline-flex">
 		<input
-			class="shadow p-2 appearance-none border rounded mx-1 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+			class="flex-shrink shadow p-2 appearance-none border rounded mx-1 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
 			id="score"
 			type="text"
 			placeholder={userData.score}
@@ -98,28 +98,28 @@
 		/>
 		<button
 			on:click={updateScore}
-			class="bg-gray-300 shadow hover:bg-gray-400 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+			class="flex-shrink-0 bg-gray-300 shadow hover:bg-gray-400 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
 			value="-1"
 		>
 			-1
 		</button>
 		<button
 			on:click={updateScore}
-			class="bg-gray-300 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
+			class="flex-shrink-0 bg-gray-300 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
 			value="+5"
 		>
 			+5
 		</button>
 		<button
 			on:click={updateScore}
-			class="bg-gray-300 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
+			class="flex-shrink-0 bg-gray-300 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
 			value="+10"
 		>
 			+10
 		</button>
 		<button
 			on:click={updateScore}
-			class="bg-gray-300 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+			class="flex-shrink-0 bg-gray-300 shadow hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
 			value="+15"
 		>
 			+15
