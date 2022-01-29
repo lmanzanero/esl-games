@@ -7,7 +7,7 @@
 	async function getUserScores() {
 		if (supabase.auth.session()) {
 			let { data: scorekeeper, error } = await supabase.from('scorekeeper').select('*');
-			scoreKeeperStore.set({ users: scorekeeper, canSave: true });
+			scoreKeeperStore.set({ users: scorekeeper, canSave: false });
 		}
 	}
 </script>
@@ -39,7 +39,7 @@
 	/>
 	<meta property="twitter:image" content="https://esl-games.vercel.app/score-keeper.png" />
 </svelte:head>
-<section class="h-screen">
+<section class="bg-gray-200 h-screen">
 	<ScoreHeader />
 	<div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 pt-32">
 		{#await getUserScores()}
