@@ -84,7 +84,7 @@
 			/>
 		</svg>
 	</button>
-	<label class="block text-grey-darker text-sm font-bold mb-2 pl-1" for="username">
+	<label class="text-lg font-extrabold text-white mb-2 pl-1" for="username">
 		{userData.username}
 	</label>
 	<div class="inline-flex">
