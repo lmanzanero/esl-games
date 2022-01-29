@@ -7,7 +7,7 @@
 	async function getUserScores() {
 		if (supabase.auth.session()) {
 			let { data: scorekeeper, error } = await supabase.from('scorekeeper').select('*');
-			scoreKeeperStore.set({ users: scorekeeper });
+			scoreKeeperStore.set({ users: scorekeeper, canSave: true });
 		}
 	}
 </script>

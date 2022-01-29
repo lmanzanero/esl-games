@@ -29,12 +29,13 @@
 			username: newUser,
 			score: 0
 		});
-		scoreKeeperStore.set({ users: Users });
+		scoreKeeperStore.set({ users: Users, canSave: false });
 		newUser = '';
 	}
 
 	$: {
 		console.log(Users);
+		console.log('Can Save: ', $scoreKeeperStore.canSave);
 	}
 
 	//finds if user exists
@@ -134,8 +135,11 @@
 				New
 			</button>
 			<button
-				class="bg-green-600 hover:bg-green-700 hover:text-gray-300 group flex items-center rounded-md text-white text-sm font-medium px-4 py-2"
+				class="bg-green-600 hover:bg-green-700 hover:text-gray-300 group flex items-center rounded-md text-white text-sm font-medium px-4 py-2 {$scoreKeeperStore.canSave
+					? 'cursor-not-allowed'
+					: ''}"
 				on:click={saveData}
+				disabled={$scoreKeeperStore.canSave}
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

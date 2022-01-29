@@ -9,17 +9,24 @@
 	function updateScore(e) {
 		if (isNaN(e.target.value)) {
 			alert('Value must be number');
+			scoreKeeperStore.update((store) => {
+				store.canSave = true;
+				return store;
+			});
 			return false;
 		}
 		//find all scores and update based on username
 		const updatedScores = Users.map((user) => {
 			if (user.username == userData.username) {
-				console.log(e.target.value);
 				if (e.target.value.includes('+') || e.target.value.includes('-')) {
 					user.score += Number(e.target.value);
 				} else {
 					user.score = Number(e.target.value);
 				}
+				scoreKeeperStore.update((store) => {
+					store.canSave = false;
+					return store;
+				});
 			}
 			return user;
 		});

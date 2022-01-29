@@ -1,7 +1,8 @@
 import { writable } from "svelte/store";
 
 const defaultScores = {
-	users: []
+	users: [],
+  canSave: true
 }
 function createScoreKeeperStore() {
   const { subscribe, set, update,  } = writable(defaultScores)
