@@ -42,16 +42,47 @@
 	});
 </script>
 
-<div class="rounded border mx-auto mt-4">
+<div class="rounded mx-auto">
 	<!-- Tabs -->
 	<ul id="tabs" class="inline-flex pt-2 px-1 w-full border-b">
 		<li
 			class="bg-white px-4 text-gray-800 font-semibold py-2 rounded-t border-t border-r border-l -mb-px"
 		>
-			<a id="default-tab" href="#first">Customize</a>
+			<a class="flex" id="default-tab" href="#first">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6 px-1"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+					/>
+				</svg>
+				Customize</a
+			>
 		</li>
 		<li class="px-4 text-gray-800 font-semibold py-2 rounded-t">
-			<a href="#second">Collections</a>
+			<a class="flex" href="#second">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6 px-1"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+					/>
+				</svg>Collections</a
+			>
 		</li>
 	</ul>
 
