@@ -71,7 +71,7 @@
 </script>
 
 {#if !supabase.auth.user()}
-	<div class="bg-indigo-900 text-center py-4 lg:px-4">
+	<div class="bg-indigo-900 px-2 py-4 text-center lg:px-4">
 		<div
 			class="animate-bounce p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
 			role="alert"

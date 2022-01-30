@@ -115,12 +115,17 @@
 			</div>
 			<div class="mb-4">
 				<label class="block text-gray-700 text-sm font-bold mb-2" for="name"> Score options </label>
-				<div class="flex flex-row">
-					<input
-						type="number"
-						class="w-1/4 bg-gray-200 shadow hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 mx-1 rounded"
-						value="-1"
-					/>
+				<div class="flex flex-row overflow-x-auto">
+					<div class="relative w-1/4 mx-1 overflow-visible">
+						<input
+							type="number"
+							class="w-full z-10 relative overflow-visible bg-gray-200 shadow hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded"
+							value="-1"
+						/>
+						<button class="absolute -right-1 -top-3 text-gray-400 hover:text-red-400 rounded z-20">
+							X
+						</button>
+					</div>
 					<input
 						type="number"
 						class="w-1/4 bg-gray-200 shadow hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 mx-1 rounded"
@@ -136,6 +141,25 @@
 						class="w-1/4 bg-gray-200 shadow hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 mx-1 rounded"
 						value="15"
 					/>
+					<button
+						type="button"
+						class="bg-gray-200 shadow hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 mx-1 rounded"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-6 w-6"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+							/>
+						</svg>
+					</button>
 				</div>
 			</div>
 		</div>
