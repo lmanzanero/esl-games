@@ -56,9 +56,6 @@
 				if (data) {
 					isSaving = false;
 				}
-				if (error) {
-					isError = true;
-				}
 			} catch (error) {
 				console.log(error);
 				isSaving = false;
