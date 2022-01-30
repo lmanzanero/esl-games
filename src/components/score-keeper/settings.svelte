@@ -88,7 +88,57 @@
 
 	<!-- Tab Contents -->
 	<div id="tab-contents">
-		<div id="first" class="p-4">Customize Settings</div>
+		<div id="first" class="p-4">
+			<div class="mb-4">
+				<label class="block text-gray-700 text-sm font-bold mb-2" for="name"> Name </label>
+				<input
+					class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					id="name"
+					type="text"
+					placeholder="Scoreboard name"
+				/>
+			</div>
+			<div class="mb-4">
+				<label class="block text-gray-700 text-sm font-bold mb-2" for="name"> Sort By </label>
+				<label class="inline-flex items-center">
+					<input type="radio" class="form-radio" name="accountType" value="1" />
+					<span class="ml-2">Alpabetically</span>
+				</label>
+				<label class="inline-flex items-center ml-6">
+					<input type="radio" class="form-radio" name="accountType" value="2" />
+					<span class="ml-2">Highest Score</span>
+				</label>
+				<label class="inline-flex items-center ml-6">
+					<input type="radio" class="form-radio" name="accountType" value="2" />
+					<span class="ml-2">Lowest Score</span>
+				</label>
+			</div>
+			<div class="mb-4">
+				<label class="block text-gray-700 text-sm font-bold mb-2" for="name"> Score options </label>
+				<div class="flex flex-row">
+					<input
+						type="number"
+						class="w-1/4 bg-gray-200 shadow hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 mx-1 rounded"
+						value="-1"
+					/>
+					<input
+						type="number"
+						class="w-1/4 bg-gray-200 shadow hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 mx-1 rounded"
+						value="5"
+					/>
+					<input
+						type="number"
+						class="w-1/4 bg-gray-200 shadow hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 mx-1 rounded"
+						value="10"
+					/>
+					<input
+						type="number"
+						class="w-1/4 bg-gray-200 shadow hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 mx-1 rounded"
+						value="15"
+					/>
+				</div>
+			</div>
+		</div>
 		<div id="second" class="hidden p-4">Collections</div>
 	</div>
 </div>
