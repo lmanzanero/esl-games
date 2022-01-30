@@ -29,7 +29,7 @@
 				<button
 					type="button"
 					class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2"
-					on:click={toggleModal}><i class="fas fa-times" /> Cancel</button
+					on:click={toggleModal}><i class="fas fa-times" /> Close</button
 				>
 			</div>
 		</div>

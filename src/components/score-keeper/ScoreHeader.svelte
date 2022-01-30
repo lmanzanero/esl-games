@@ -2,7 +2,8 @@
 	import { supabase } from '$lib/dbConfig';
 
 	import { scoreKeeperStore } from '../../stores/score-keeper';
-	import Modal from '../modals/modal.svelte';
+	import SettingsModal from '../modals/SettingsModal.svelte';
+	import Settings from './settings.svelte';
 
 	let newUser = '';
 	let Users;
@@ -173,5 +174,7 @@
 			</button>
 		</div>
 	</div>
-	<Modal {isModalOpen} {toggleModal} />
+	<SettingsModal {isModalOpen} {toggleModal}>
+		<Settings />
+	</SettingsModal>
 </div>
