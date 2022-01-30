@@ -2,11 +2,16 @@
 	import { supabase } from '$lib/dbConfig';
 
 	import { scoreKeeperStore } from '../../stores/score-keeper';
+	import Modal from '../modals/modal.svelte';
 
 	let newUser = '';
 	let Users;
 	let isSaving = false;
-	let isError = false;
+	let isModalOpen = false;
+
+	function toggleModal() {
+		return (isModalOpen = !isModalOpen);
+	}
 	scoreKeeperStore.subscribe((store) => (Users = store.users));
 	async function addUser(e) {
 		e.preventDefault();
@@ -121,6 +126,7 @@
 		<div class="flex">
 			<button
 				class="bg-indigo-600 hover:bg-indigo-700 hover:text-gray-300 group flex items-center rounded-md text-white text-sm font-medium px-4 py-2 mx-2"
+				on:click={toggleModal}
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -170,4 +176,5 @@
 			</button>
 		</div>
 	</div>
+	<Modal {isModalOpen} {toggleModal} />
 </div>
