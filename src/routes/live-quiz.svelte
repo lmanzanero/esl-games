@@ -52,7 +52,6 @@
 	}
 
 	onMount(() => {
-		isModalOpen = true;
 		const question = document.querySelector('.question');
 		const answers = document.querySelectorAll('.answers .answer');
 		const answerIcons = document.querySelectorAll('.answers .answer svg');
@@ -152,153 +151,165 @@
 		</div>
 	</div>
 </div>
-<div class="container m-auto p-4">
-	<div class="flex flex-row">
-		<button class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="animate-bounce h-6 w-6"
-				viewBox="0 0 20 20"
-				fill="currentColor"
+<div class="grid grid-cols-2">
+	<div class="container m-auto p-4">
+		<div class="flex flex-row">
+			<button class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="animate-bounce h-6 w-6"
+					viewBox="0 0 20 20"
+					fill="currentColor"
+				>
+					<path
+						fill-rule="evenodd"
+						d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+						clip-rule="evenodd"
+					/>
+				</svg>
+				<span>stats</span>
+			</button>
+			<button
+				class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex"
+				on:click={toggleModal}
 			>
-				<path
-					fill-rule="evenodd"
-					d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
-					clip-rule="evenodd"
-				/>
-			</svg>
-			<span>stats</span>
-		</button>
-		<button
-			class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex"
-			on:click={toggleModal}
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+					/>
+				</svg>
+				<span>Join</span>
+			</button>
+			<button class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+					/>
+				</svg>
+				<span>Create</span>
+			</button>
+		</div>
+		<div class="flex justify-center p-4">
+			<h2 class="question text-3xl text-gray">What is your name?</h2>
+		</div>
+		<div class="answers grid grid-cols-2 gap-1">
+			<button
+				class="answer flex justify-center rounded shadow text-center p-4 bg-blue-300 w-full hover:bg-blue-500"
 			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
-				/>
-			</svg>
-			<span>Join</span>
-		</button>
-		<button class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
+				<!-- Column Content -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6 mx-4 hidden"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+					/>
+				</svg>
+				<span class="pointer-events-none">...</span>
+			</button>
+
+			<button
+				class="answer flex justify-center rounded shadow text-center p-4 bg-red-300 w-full hover:bg-red-500"
 			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
-				/>
-			</svg>
-			<span>Create</span>
-		</button>
+				<!-- Column Content -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6 text-red-800 mx-4 hidden"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+					/>
+				</svg>
+				<span class="pointer-events-none">...</span>
+			</button>
+
+			<button
+				class="answer flex justify-center rounded shadow text-center p-4 bg-indigo-300 w-full hover:bg-indigo-500"
+			>
+				<!-- Column Content -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6 text-red-800 mx-4 hidden"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+					/>
+				</svg>
+				<span class="pointer-events-none">...</span>
+			</button>
+
+			<button
+				class="answer flex justify-center rounded shadow text-center p-4 bg-green-300 w-full hover:bg-green-500"
+			>
+				<!-- Colums Content -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6 text-red-800 mx-4 hidden"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+					/>
+				</svg>
+				<span class="pointer-events-none">...</span>
+			</button>
+		</div>
 	</div>
-	<div class="flex justify-center p-4">
-		<h2 class="question text-3xl text-gray">What is your name?</h2>
-	</div>
-	<div class="answers flex flex-wrap overflow-hidden sm:-mx-px md:-mx-1 lg:-mx-4 xl:-mx-1">
-		<button
-			class="answer flex justify-center rounded shadow text-center p-4 bg-blue-300 w-full hover:bg-blue-500 my-2 lg:w-1/2"
-		>
-			<!-- Column Content -->
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 mx-4 hidden"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-				/>
-			</svg>
-			<span class="pointer-events-none">...</span>
-		</button>
-
-		<button
-			class="answer flex justify-center rounded shadow text-center p-4 bg-red-300 w-full hover:bg-red-500 my-2 lg:w-1/2"
-		>
-			<!-- Column Content -->
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 text-red-800 mx-4 hidden"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-				/>
-			</svg>
-			<span class="pointer-events-none">...</span>
-		</button>
-
-		<button
-			class="answer flex justify-center rounded shadow text-center p-4 bg-indigo-300 w-full hover:bg-indigo-500 my-2 lg:w-1/2"
-		>
-			<!-- Column Content -->
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 text-red-800 mx-4 hidden"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-				/>
-			</svg>
-			<span class="pointer-events-none">...</span>
-		</button>
-
-		<button
-			class="answer flex justify-center rounded shadow text-center p-4 bg-green-300 w-full hover:bg-green-500 my-2 lg:w-1/2"
-		>
-			<!-- Colums Content -->
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 text-red-800 mx-4 hidden"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-				/>
-			</svg>
-			<span class="pointer-events-none">...</span>
-		</button>
+	<div>
+		<img src="https://i.imgur.com/cO2gvTs.png" alt="" srcset="" height="400" />
+		<img
+			src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2018/08/terminal-output.png?ssl=1"
+			alt=""
+			srcset=""
+			height="400"
+			width="400"
+		/>
 	</div>
 </div>
 <SettingsModal {isModalOpen} {toggleModal}>
 	<div class="flex justify-center">
-		<input type="text" class="p-2 border rounded" placeholder="Room ID" />
+		<input type="text" class="p-2 border-2 rounded border-blue-300" placeholder="Room ID" />
 		<button class="bg-blue-500 text-white py-2 px-6 mx-2 hover:bg-blue-600 rounded flex">
 			Join
 		</button>
