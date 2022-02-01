@@ -1,6 +1,11 @@
 <script>
-	import { afterUpdate, onMount } from 'svelte';
+	import SettingsModal from '../components/modals/SettingsModal.svelte';
+	import { onMount } from 'svelte';
 	let allScores = [20, 30];
+	let isModalOpen = false;
+	function toggleModal() {
+		return (isModalOpen = !isModalOpen);
+	}
 	$: score = allScores.reduce((t, n) => t + n, 0);
 	const questions = [
 		{
@@ -47,6 +52,7 @@
 	}
 
 	onMount(() => {
+		isModalOpen = true;
 		const question = document.querySelector('.question');
 		const answers = document.querySelectorAll('.answers .answer');
 		const answerIcons = document.querySelectorAll('.answers .answer svg');
@@ -163,7 +169,10 @@
 			</svg>
 			<span>stats</span>
 		</button>
-		<button class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex">
+		<button
+			class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex"
+			on:click={toggleModal}
+		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="h-6 w-6"
@@ -287,6 +296,14 @@
 		</button>
 	</div>
 </div>
+<SettingsModal {isModalOpen} {toggleModal}>
+	<div class="flex justify-center">
+		<input type="text" class="p-2 border rounded" placeholder="Room ID" />
+		<button class="bg-blue-500 text-white py-2 px-6 mx-2 hover:bg-blue-600 rounded flex">
+			Join
+		</button>
+	</div>
+</SettingsModal>
 
 <style>
 	@tailwind base;
