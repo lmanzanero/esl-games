@@ -210,7 +210,7 @@
 		<div class="flex justify-center p-4">
 			<h2 class="question text-3xl text-gray">What is your name?</h2>
 		</div>
-		<div class="answers grid grid-cols-2 gap-1">
+		<div class="answers grid grid-cols-1 gap-1 md:grid-cols-2">
 			<button
 				class="answer flex justify-center rounded shadow text-center p-4 bg-blue-300 w-full hover:bg-blue-500"
 			>
