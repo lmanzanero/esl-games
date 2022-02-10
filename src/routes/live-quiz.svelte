@@ -1,8 +1,13 @@
 <script>
 	import SettingsModal from '../components/modals/SettingsModal.svelte';
 	import { onMount } from 'svelte';
+	import { quizClient } from '$lib/socketsConfig';
 	let allScores = [20, 30];
 	let isModalOpen = false;
+	let room = '';
+	let username = '';
+	let activity = '';
+	let chartData;
 	function toggleModal() {
 		return (isModalOpen = !isModalOpen);
 	}
@@ -49,6 +54,7 @@
 	function updateScore(score) {
 		allScores.push(score);
 		allScores = allScores;
+		quizClient.emit('userScore', score);
 	}
 
 	onMount(() => {
@@ -104,7 +110,30 @@
 		}
 
 		shuffleQuestions();
+		quizClient.on('connection', function (msg) {
+			console.log('wtf: ', msg);
+			score = msg;
+		});
+
+		// Get room and users
+		quizClient.on('roomUsers', ({ room, users }) => {
+			console.log(room, users);
+		});
+
+		quizClient.on('message', (message) => {
+			console.log(message);
+			activity = message;
+		});
+
+		quizClient.on('disconnect', () => {
+			console.log('user disconnected');
+		});
 	});
+
+	function joinRoom() {
+		console.log('Joing room with: ', username, room, score);
+		quizClient.emit('joinRoom', { username, room, score });
+	}
 </script>
 
 <svelte:head>
@@ -298,13 +327,27 @@
 	</div>
 	<div>
 		<div class="charts">Charts</div>
-		<div class="activity">Activity</div>
+		<div class="activity">{JSON.stringify(activity)}</div>
 	</div>
 </div>
 <SettingsModal {isModalOpen} {toggleModal}>
 	<div class="flex justify-center">
-		<input type="text" class="p-2 border-2 rounded border-blue-300" placeholder="Room ID" />
-		<button class="bg-blue-500 text-white py-2 px-6 mx-2 hover:bg-blue-600 rounded flex">
+		<input
+			type="text"
+			bind:value={room}
+			class="p-2 border-2 rounded border-blue-300 mx-1"
+			placeholder="Room ID"
+		/>
+		<input
+			type="text"
+			bind:value={username}
+			class="p-2 border-2 rounded border-blue-300 mx-1"
+			placeholder="Username"
+		/>
+		<button
+			on:click={joinRoom}
+			class="bg-blue-500 text-white py-2 px-6 mx-2 hover:bg-blue-600 rounded flex"
+		>
 			Join
 		</button>
 	</div>
