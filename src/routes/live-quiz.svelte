@@ -297,14 +297,8 @@
 		</div>
 	</div>
 	<div>
-		<img src="https://i.imgur.com/cO2gvTs.png" alt="" srcset="" height="400" />
-		<img
-			src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2018/08/terminal-output.png?ssl=1"
-			alt=""
-			srcset=""
-			height="400"
-			width="400"
-		/>
+		<div class="charts">Charts</div>
+		<div class="activity">Activity</div>
 	</div>
 </div>
 <SettingsModal {isModalOpen} {toggleModal}>
