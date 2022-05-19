@@ -57,13 +57,3 @@
 	</div>
 	<div class="bg-purple-300 rounded shadow p-2">Hello Collections Box</div>
 </div>
-
-<style>
-	.tab-content {
-		display: none;
-	}
-
-	.tab-content.active {
-		display: block;
-	}
-</style>
