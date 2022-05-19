@@ -55,5 +55,23 @@
 			New
 		</button>
 	</div>
-	<div class="bg-purple-300 rounded shadow p-2">Hello Collections Box</div>
+	<div class="p-2">
+		<h3 class="text-center text-3xl py-6">You need to create a collection to host a game!</h3>
+		<div class="flex flex-row gap-12 justify-center">
+			<button
+				class="rounded bg-purple-500 text-gray-300 rounded shadow-md p-4 hover:text-white hover:shadow-lg"
+			>
+				Create a Collections
+			</button>
+			<button
+				class="rounded bg-blue-400 text-gray-200 rounded shadow-md p-4 hover:text-white  hover:shadow-lg"
+			>
+				Discover Collections
+			</button>
+		</div>
+
+		<div class="text-center my-6">
+			<a class="underline text-blue-400 hover:text-blue-600" href="#"> Learn from Tutorial </a>
+		</div>
+	</div>
 </div>
