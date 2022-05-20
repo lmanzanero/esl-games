@@ -1,23 +1,31 @@
+<script>
+	import CollectionCard from '../../components/dashboard/CollectionCard.svelte';
+</script>
+
 <div class="bg-white">
-	<div class="flex justify-between m-2">
+	<div class="flex justify-between bg-purple-300 rounded shadow p-3">
 		<h3 class="text-4xl font-bold">Collections</h3>
-		<button
-			class="bg-indigo-600 hover:bg-indigo-700 hover:text-gray-300 group flex items-center rounded-md text-white text-sm font-medium px-4 py-2 mx-2"
-		>
-			<svg
-				class="group-hover:text-light-blue-600 text-light-blue-500 mr-2"
-				width="12"
-				height="20"
-				fill="currentColor"
-			>
-				<path
-					fill-rule="evenodd"
-					clip-rule="evenodd"
-					d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"
-				/>
-			</svg>
-			New
-		</button>
+		<div class="font-sans rounded text-black bg-blue-400 flex items-center justify-center">
+			<div class="border-4 border-blue-300 rounded overflow-hidden flex">
+				<input type="text" class="px-4 py-2" placeholder="Search..." />
+				<button class="flex items-center justify-center px-4">
+					<svg
+						class="h-4 w-4 text-gray-300 "
+						fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						><path
+							d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
+						/></svg
+					>
+				</button>
+			</div>
+		</div>
 	</div>
-	<div class="bg-purple-300 rounded shadow p-2">Hello Collections Box</div>
+	<div class="flex flex-row flex-wrap justify-between gap-2">
+		<CollectionCard />
+		<CollectionCard />
+		<CollectionCard />
+		<CollectionCard />
+	</div>
 </div>
