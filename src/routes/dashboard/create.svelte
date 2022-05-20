@@ -9,6 +9,10 @@
 		<div class="flex justify-center items-center gap-2">
 			<Switch bind:checked={isPrivate} />
 			<p class="text-gray-600 font-bold">{isPrivate ? 'Private' : 'Public'}</p>
+			<button
+				class="bg-white w-28 py-2 ml-6 rounded-lg shadow-lg font-bold text-purple-500 hover:bg-gray-200"
+				>Save</button
+			>
 		</div>
 	</div>
 	<div class="flex my-4 gap-3">
