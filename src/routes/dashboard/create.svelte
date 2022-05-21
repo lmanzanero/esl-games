@@ -3,6 +3,7 @@
 	import Switch from '../../components/common/Switch.svelte';
 	import QuizModal from '../../components/modals/QuizModal.svelte';
 	import QuestionEditor from '../../components/questions/QuestionEditor.svelte';
+	import SpreedSheetQUploader from '../../components/questions/SpreedSheetQUploader.svelte';
 	let isPrivate = false;
 	let isModalOpen = false;
 	let isUploadModalOpen = false;
@@ -20,7 +21,9 @@
 	<QuizModal {isModalOpen} {toggleModal}>
 		<QuestionEditor />
 	</QuizModal>
-	<QuizModal isModalOpen={isUploadModalOpen} toggleModal={toggleUploadModal}>Upload</QuizModal>
+	<QuizModal isModalOpen={isUploadModalOpen} toggleModal={toggleUploadModal}>
+		<SpreedSheetQUploader />
+	</QuizModal>
 	<div class="flex justify-between bg-purple-300 rounded shadow p-3">
 		<h3 class="text-4xl font-bold">Create a Collection</h3>
 		<div class="flex justify-center items-center gap-2">
