@@ -1,60 +1,23 @@
 <script>
 	import SettingsModal from '../components/modals/SettingsModal.svelte';
 	import { onMount } from 'svelte';
-	import { quizClient } from '$lib/socketsConfig';
+	import { supabase } from '$lib/dbConfig';
 	let allScores = [20, 30];
 	let isModalOpen = false;
 	let room = '';
 	let username = '';
-	let activity = '';
-	let chartData;
+	let isLoading = false;
+	let imageUrl = '';
 	function toggleModal() {
 		return (isModalOpen = !isModalOpen);
 	}
 	$: score = allScores.reduce((t, n) => t + n, 0);
-	const questions = [
-		{
-			question: 'What is 2 + 2?',
-			answers: [
-				{ text: '4', correct: true },
-				{ text: '22', correct: false },
-				{ text: '25', correct: false },
-				{ text: '12', correct: false }
-			]
-		},
-		{
-			question: 'What is your name?',
-			answers: [
-				{ text: 'My name is Dora.', correct: true },
-				{ text: 'What do you mean?', correct: false },
-				{ text: 'Because I like pizza.', correct: false },
-				{ text: 'Your name is Dora.', correct: false }
-			]
-		},
-		{
-			question: 'What did you do yesterday?',
-			answers: [
-				{ text: 'I eat a lot of pizza', correct: false },
-				{ text: 'I ate a lot of pizza', correct: true },
-				{ text: 'I will eat a lot of pizza.', correct: false },
-				{ text: 'I am eating a lot of pizza.', correct: false }
-			]
-		},
-		{
-			question: 'What will you do tomorrow?',
-			answers: [
-				{ text: 'I played video games.', correct: false },
-				{ text: 'I am playing videos games.', correct: false },
-				{ text: 'I play video games everyday.', correct: false },
-				{ text: 'I will play video games tomorrow', correct: true }
-			]
-		}
-	];
+	let questions = [];
+	//
 
 	function updateScore(score) {
 		allScores.push(score);
 		allScores = allScores;
-		quizClient.emit('userScore', score);
 	}
 
 	onMount(() => {
@@ -63,14 +26,30 @@
 		const answerIcons = document.querySelectorAll('.answers .answer svg');
 		const answerIconPaths = document.querySelectorAll('.answers .answer svg path');
 
-		function shuffleQuestions() {
+		async function getQuestions() {
+			isLoading = true;
+			if (supabase.auth.session()) {
+				let { data, error } = await supabase
+					.from('question')
+					.select('question, image_url, answers(answer, correct)');
+				console.log('Data: ', data);
+				questions = data;
+				isLoading = false;
+				shuffleQuestions();
+			}
+		}
+
+		getQuestions();
+
+		async function shuffleQuestions() {
 			//get random question
 			const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 			//set random question to dom
 			question.textContent = randomQuestion.question;
+			imageUrl = randomQuestion.image_url;
 			//set random answers to dom
 			answers.forEach((answer, index) => {
-				answer.lastChild.textContent = randomQuestion.answers[index].text;
+				answer.lastChild.textContent = randomQuestion.answers[index].answer;
 				//add attribute to html to see if answer is correct or wrong
 				answer.setAttribute('is-correct', `${randomQuestion.answers[index].correct}`);
 				answer.setAttribute('index', `${index}`);
@@ -108,32 +87,7 @@
 				);
 			}
 		}
-
-		shuffleQuestions();
-		quizClient.on('connection', function (msg) {
-			console.log('wtf: ', msg);
-			score = msg;
-		});
-
-		// Get room and users
-		quizClient.on('roomUsers', ({ room, users }) => {
-			console.log(room, users);
-		});
-
-		quizClient.on('message', (message) => {
-			console.log(message);
-			activity = message;
-		});
-
-		quizClient.on('disconnect', () => {
-			console.log('user disconnected');
-		});
 	});
-
-	function joinRoom() {
-		console.log('Joing room with: ', username, room, score);
-		quizClient.emit('joinRoom', { username, room, score });
-	}
 </script>
 
 <svelte:head>
@@ -180,8 +134,8 @@
 		</div>
 	</div>
 </div>
-<div class="grid grid-cols-2">
-	<div class="container m-auto p-4">
+<div class="container m-auto">
+	<div class="flex flex-col justify-end m-auto p-4">
 		<div class="flex flex-row">
 			<button class="bg-blue-500 text-white py-2 px-6 m-2 hover:bg-blue-600 rounded-full flex">
 				<svg
@@ -236,12 +190,18 @@
 				<span>Create</span>
 			</button>
 		</div>
-		<div class="flex justify-center p-4">
-			<h2 class="question text-3xl text-gray">What is your name?</h2>
+		<div class="flex justify-center items-center p-3">
+			<div class="h-48 w-48 flex justify-center mx-3">
+				<img src={imageUrl} alt="mockup" class="d-block rounded shadow-md" />
+			</div>
+			<h2 class="question text-4xl text-gray-600">{isLoading ? 'loading...' : ''}</h2>
 		</div>
-		<div class="answers grid grid-cols-1 gap-1 md:grid-cols-2">
+		<div class="answers h-56 grid grid-cols-1 gap-1 md:grid-cols-2">
 			<button
-				class="answer flex justify-center rounded shadow text-center p-4 bg-blue-300 w-full hover:bg-blue-500"
+				class="answer flex justify-center items-center rounded shadow text-center text-gray-600 text-2xl p-4 bg-blue-400 w-full hover:bg-blue-500 {isLoading
+					? 'cursor-not-allowed opacity-50'
+					: ''}"
+				disabled={isLoading}
 			>
 				<!-- Column Content -->
 				<svg
@@ -262,7 +222,10 @@
 			</button>
 
 			<button
-				class="answer flex justify-center rounded shadow text-center p-4 bg-red-300 w-full hover:bg-red-500"
+				class="answer flex justify-center items-center rounded shadow text-center text-gray-600 text-2xl  p-4 bg-red-400 w-full hover:bg-red-500 {isLoading
+					? 'cursor-not-allowed opacity-50'
+					: ''}"
+				disabled={isLoading}
 			>
 				<!-- Column Content -->
 				<svg
@@ -283,7 +246,10 @@
 			</button>
 
 			<button
-				class="answer flex justify-center rounded shadow text-center p-4 bg-indigo-300 w-full hover:bg-indigo-500"
+				class="answer flex justify-center items-center rounded shadow text-center text-gray-600 text-2xl  p-4 bg-indigo-400 w-full hover:bg-indigo-500  {isLoading
+					? 'cursor-not-allowed opacity-50'
+					: ''}"
+				disabled={isLoading}
 			>
 				<!-- Column Content -->
 				<svg
@@ -304,7 +270,10 @@
 			</button>
 
 			<button
-				class="answer flex justify-center rounded shadow text-center p-4 bg-green-300 w-full hover:bg-green-500"
+				class="answer flex justify-center items-center rounded shadow text-center text-gray-600 text-2xl p-4 bg-green-400 w-full hover:bg-green-500 {isLoading
+					? 'cursor-not-allowed opacity-50'
+					: ''}"
+				disabled={isLoading}
 			>
 				<!-- Colums Content -->
 				<svg
@@ -325,10 +294,6 @@
 			</button>
 		</div>
 	</div>
-	<div>
-		<div class="charts">Charts</div>
-		<div class="activity">{JSON.stringify(activity)}</div>
-	</div>
 </div>
 <SettingsModal {isModalOpen} {toggleModal}>
 	<div class="flex justify-center">
@@ -344,17 +309,8 @@
 			class="p-2 border-2 rounded border-blue-300 mx-1"
 			placeholder="Username"
 		/>
-		<button
-			on:click={joinRoom}
-			class="bg-blue-500 text-white py-2 px-6 mx-2 hover:bg-blue-600 rounded flex"
-		>
+		<button class="bg-blue-500 text-white py-2 px-6 mx-2 hover:bg-blue-600 rounded flex">
 			Join
 		</button>
 	</div>
 </SettingsModal>
-
-<style>
-	@tailwind base;
-	@tailwind components;
-	@tailwind utilities;
-</style>
