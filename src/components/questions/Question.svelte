@@ -1,10 +1,14 @@
+<script>
+	export let question = 'No question added';
+</script>
+
 <div class="w-full h-28 my-2 shadow-md flex items-center bg-purple-300 rounded">
 	<img
 		class="w-30 h-full object-cover"
 		src="https://media.istockphoto.com/vectors/image-preview-icon-picture-placeholder-for-website-or-uiux-design-vector-id1222357475?k=20&m=1222357475&s=170667a&w=0&h=YGycIDbBRAWkZaSvdyUFvotdGfnKhkutJhMOZtIoUKY="
 		alt="Question"
 	/>
-	<p class="w-full truncate text-xl text-gray-600 pl-4">Where is pluto?</p>
+	<p class="w-full truncate text-xl text-gray-600 pl-4">{question}</p>
 	<div class="flex flex-col pr-2">
 		<button class="h-1/3 hover:shadow p-1 text-purple-500 hover:text-purple-700 rounded-lg">
 			<svg

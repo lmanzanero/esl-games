@@ -1,10 +1,20 @@
 <script>
 	import Question from '../../components/questions/Question.svelte';
 	import Switch from '../../components/common/Switch.svelte';
+	import QuizModal from '../../components/modals/QuizModal.svelte';
+	import CreateQuestion from '../../components/questions/CreateQuestion.svelte';
 	let isPrivate = false;
+	let isModalOpen = false;
+
+	function toggleModal() {
+		return (isModalOpen = !isModalOpen);
+	}
 </script>
 
 <div class="bg-white">
+	<QuizModal {isModalOpen} {toggleModal}>
+		<CreateQuestion />
+	</QuizModal>
 	<div class="flex justify-between bg-purple-300 rounded shadow p-3">
 		<h3 class="text-4xl font-bold">Create a Collection</h3>
 		<div class="flex justify-center items-center gap-2">
@@ -117,6 +127,7 @@
 		<h4 class="text-3xl font-bold text-center">Create Method</h4>
 		<div class="flex flex-row flex-wrap justify-around">
 			<button
+				on:click={toggleModal}
 				class="w-64 bg-white hover:bg-gray-100 shadow-lg text-gray-800 font-bold py-4 px-8 rounded inline-flex gap-3 items-center"
 			>
 				<svg
@@ -198,6 +209,6 @@
 			/>
 		</svg>
 	</p>
-	<Question />
-	<Question />
+	<Question question="Where is pluto?" />
+	<Question question="Where is Mars?" />
 </div>
