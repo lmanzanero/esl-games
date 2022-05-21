@@ -5,9 +5,14 @@
 	import QuestionEditor from '../../components/questions/QuestionEditor.svelte';
 	let isPrivate = false;
 	let isModalOpen = false;
+	let isUploadModalOpen = false;
 
 	function toggleModal() {
 		return (isModalOpen = !isModalOpen);
+	}
+
+	function toggleUploadModal() {
+		return (isUploadModalOpen = !isUploadModalOpen);
 	}
 </script>
 
@@ -15,6 +20,7 @@
 	<QuizModal {isModalOpen} {toggleModal}>
 		<QuestionEditor />
 	</QuizModal>
+	<QuizModal isModalOpen={isUploadModalOpen} toggleModal={toggleUploadModal}>Upload</QuizModal>
 	<div class="flex justify-between bg-purple-300 rounded shadow p-3">
 		<h3 class="text-4xl font-bold">Create a Collection</h3>
 		<div class="flex justify-center items-center gap-2">
@@ -172,6 +178,7 @@
 				</div>
 			</button>
 			<button
+				on:click={toggleUploadModal}
 				class="w-64 bg-white hover:bg-gray-100 shadow-lg text-gray-800 font-bold py-4 px-8 rounded inline-flex gap-3 items-center"
 			>
 				<svg
