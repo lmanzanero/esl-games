@@ -2,10 +2,15 @@
 	import CloseBadge from '../badges/CloseBadge.svelte';
 	export let isCorrect;
 	export let placeholder = 'Write answer';
+
+	function toggleIsCorrect() {
+		return (isCorrect = !isCorrect);
+	}
 </script>
 
 <div class="flex gap-2">
 	<button
+		on:click={toggleIsCorrect}
 		class="relative p-2 border rounded text-{isCorrect
 			? 'green'
 			: 'red'}-400 hover:shadow hover:text-{isCorrect ? 'green' : 'red'}-500"
