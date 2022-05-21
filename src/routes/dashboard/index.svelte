@@ -1,58 +1,30 @@
-<script>
-	import { onMount } from 'svelte';
-	let selectedTab = 'panel-1';
-	onMount(() => {
-		const tabs = document.querySelectorAll('.tabs');
-		const tab = document.querySelectorAll('.tab');
-		const panel = document.querySelectorAll('.tab-content');
-
-		function onTabClick(event) {
-			// deactivate existing active tabs and panel
-			for (let i = 0; i < tab.length; i++) {
-				tab[i].classList.remove('active');
-			}
-
-			for (let i = 0; i < panel.length; i++) {
-				panel[i].classList.remove('active');
-			}
-
-			// activate new tabs and panel
-			event.target.classList.add('active');
-			let classString = event.target.getAttribute('data-target');
-			console.log(classString);
-			selectedTab = classString;
-			document
-				.getElementById('panels')
-				.getElementsByClassName(classString)[0]
-				.classList.add('active');
-		}
-
-		for (let i = 0; i < tab.length; i++) {
-			tab[i].addEventListener('click', onTabClick, false);
-		}
-	});
-</script>
-
 <!-- Slot -->
 <div class="bg-white">
 	<div class="flex justify-between m-2">
 		<h3 class="text-4xl font-bold">Dashboard</h3>
 		<button
-			class="bg-indigo-600 hover:bg-indigo-700 hover:text-gray-300 group flex items-center rounded-md text-white text-sm font-medium px-4 py-2 mx-2"
+			class="bg-blue-400 hover:bg-purple-500 hover:text-gray-300 group flex items-center rounded-md text-white text-sm font-medium gap-1 px-4 py-2 mx-2"
 		>
 			<svg
-				class="group-hover:text-light-blue-600 text-light-blue-500 mr-2"
-				width="12"
-				height="20"
-				fill="currentColor"
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				stroke-width="2"
 			>
 				<path
-					fill-rule="evenodd"
-					clip-rule="evenodd"
-					d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+				/>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 				/>
 			</svg>
-			New
+			Host
 		</button>
 	</div>
 	<div class="p-2">
