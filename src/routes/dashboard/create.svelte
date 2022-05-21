@@ -1,9 +1,29 @@
 <script>
+	import Question from '../../components/questions/Question.svelte';
 	import Switch from '../../components/common/Switch.svelte';
+	import QuizModal from '../../components/modals/QuizModal.svelte';
+	import QuestionEditor from '../../components/questions/QuestionEditor.svelte';
+	import SpreedSheetQUploader from '../../components/questions/SpreedSheetQUploader.svelte';
 	let isPrivate = false;
+	let isModalOpen = false;
+	let isUploadModalOpen = false;
+
+	function toggleModal() {
+		return (isModalOpen = !isModalOpen);
+	}
+
+	function toggleUploadModal() {
+		return (isUploadModalOpen = !isUploadModalOpen);
+	}
 </script>
 
 <div class="bg-white">
+	<QuizModal {isModalOpen} {toggleModal}>
+		<QuestionEditor />
+	</QuizModal>
+	<QuizModal isModalOpen={isUploadModalOpen} toggleModal={toggleUploadModal}>
+		<SpreedSheetQUploader />
+	</QuizModal>
 	<div class="flex justify-between bg-purple-300 rounded shadow p-3">
 		<h3 class="text-4xl font-bold">Create a Collection</h3>
 		<div class="flex justify-center items-center gap-2">
@@ -116,6 +136,7 @@
 		<h4 class="text-3xl font-bold text-center">Create Method</h4>
 		<div class="flex flex-row flex-wrap justify-around">
 			<button
+				on:click={toggleModal}
 				class="w-64 bg-white hover:bg-gray-100 shadow-lg text-gray-800 font-bold py-4 px-8 rounded inline-flex gap-3 items-center"
 			>
 				<svg
@@ -160,6 +181,7 @@
 				</div>
 			</button>
 			<button
+				on:click={toggleUploadModal}
 				class="w-64 bg-white hover:bg-gray-100 shadow-lg text-gray-800 font-bold py-4 px-8 rounded inline-flex gap-3 items-center"
 			>
 				<svg
@@ -181,4 +203,22 @@
 			</button>
 		</div>
 	</div>
+	<p class="w-full flex gap-3 justify-center text-2xl text-gray-600 pl-4">
+		No Questions Yet <svg
+			xmlns="http://www.w3.org/2000/svg"
+			class="h-8 w-8"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke="currentColor"
+			stroke-width="2"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+			/>
+		</svg>
+	</p>
+	<Question question="Where is pluto?" />
+	<Question question="Where is Mars?" />
 </div>
