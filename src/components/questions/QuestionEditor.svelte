@@ -1,6 +1,6 @@
 <script>
 	import CloseBadge from '../badges/CloseBadge.svelte';
-	import CreateAnswer from './CreateAnswer.svelte';
+	import Answer from './Answer.svelte';
 </script>
 
 <div class="flex flex-col">
@@ -48,7 +48,10 @@
 	</div>
 	<div class="flex flex-col gap-3">
 		<h3 class="p-2 text-gray-600">Answers</h3>
-		<CreateAnswer isCorrect={true} />
-		<CreateAnswer isCorrect={false} />
+		<!-- AnswerEditor -->
+		<Answer isCorrect={true} />
+		<Answer isCorrect={false} />
+		<Answer isCorrect={false} placeholder="Answer (Optional)" />
+		<Answer isCorrect={false} placeholder="Answer (Optional)" />
 	</div>
 </div>

@@ -2,7 +2,7 @@
 	import Question from '../../components/questions/Question.svelte';
 	import Switch from '../../components/common/Switch.svelte';
 	import QuizModal from '../../components/modals/QuizModal.svelte';
-	import CreateQuestion from '../../components/questions/CreateQuestion.svelte';
+	import QuestionEditor from '../../components/questions/QuestionEditor.svelte';
 	let isPrivate = false;
 	let isModalOpen = false;
 
@@ -13,7 +13,7 @@
 
 <div class="bg-white">
 	<QuizModal {isModalOpen} {toggleModal}>
-		<CreateQuestion />
+		<QuestionEditor />
 	</QuizModal>
 	<div class="flex justify-between bg-purple-300 rounded shadow p-3">
 		<h3 class="text-4xl font-bold">Create a Collection</h3>
