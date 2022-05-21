@@ -36,7 +36,6 @@
 			class="relative bg-white border border-purple-500 text-gray-600 placeholder-gray-700 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full py-3 px-2"
 			{placeholder}
 		/>
-		<CloseBadge />
 	</div>
 	<button class="relative p-2 border rounded text-purple-400 hover:shadow hover:text-purple-600">
 		<CloseBadge />
